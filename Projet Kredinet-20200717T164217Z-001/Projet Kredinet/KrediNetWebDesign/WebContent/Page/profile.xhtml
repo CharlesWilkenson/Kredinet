@@ -1,0 +1,243 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" 
+          "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml"
+    	xmlns:ui="http://xmlns.jcp.org/jsf/facelets"
+       xmlns:f="http://xmlns.jcp.org/jsf/core"
+      xmlns:h = "http://java.sun.com/jsf/html"
+      xmlns:a="http://xmlns.jcp.org/jsf/passthrough"
+      xmlns:p="http://primefaces.org/ui">
+
+	<h:head>
+		<h:outputStylesheet library="design/css" name="bootstrap.min.css"/>
+		<h:outputStylesheet library="design/assets/css" name="light-bootstrap-dashboard.css"/>
+		<h:outputStylesheet library="design/css" name="font-awesome.min.css" />
+		<h:outputStylesheet library="design/assets/css" name="pe-icon-7-stroke.css" />
+		 <!-- #{resource['design/img/favicon.png']} -->
+		<link rel="icon" type="image/png" href="../resources/design/img/favicon.png" />
+		<title>KrediNet</title>
+		<!-- JavaScript -->
+		 <!-- javaScript -->
+  		<h:outputScript library="design" name="js/jquery.min.js" />
+  		<h:outputScript library="design" name="js/bootstrap.min.js" />
+  		<h:outputScript library="design/assets" name="js/light-bootstrap-dashboard.js" />
+	</h:head>
+	
+	<style>
+.main-panel > .content {
+  padding: 30px 15px;
+  padding-bottom: 15px;
+  min-height: calc(100% - 123px);
+}
+	</style>
+
+<body>
+	<div class="wrapper">
+    <div class="sidebar" data-color="purple" data-image="#{resource['design/assets/img/sidebar-7.jpg']}">
+
+    	<div class="sidebar-wrapper">
+            <div class="logo">
+                <a class="navbar-brand" href="#"><img src="#{resource['design/img/favicon.png']}" width="60" height="30"></img></a>
+				<br></br>
+            </div>
+
+            <ul class="nav">
+                <li>
+                    <a href="acceuil.xhtml">
+                        <i class="pe-7s-graph"></i>
+                        <p>Acceuil</p>
+                    </a>
+                </li>
+                <li class="active">
+                    <a href="profile.xhtml">
+                        <i class="pe-7s-user"></i>
+                        <p>Profile</p>
+                    </a>
+                </li>
+                <li>
+                    <a href="transaction.xhtml">
+                        <i class="pe-7s-cash"></i>
+                        <p>Transaction</p>
+                    </a>
+                </li>
+                <li>
+                    <a href="activite.xhtml">
+                        <i class="pe-7s-note2"></i>
+                        <p>Activite</p>
+                    </a>
+                </li>
+                <li>
+                    <a href="rapport.xhtml">
+                        <i class="pe-7s-news-paper"></i>
+                        <p>Rapport</p>
+                    </a>
+                </li>
+            </ul>
+    	</div>
+    </div>
+
+    <div class="main-panel">
+       
+		<ui:insert name="footer">
+    		<ui:include src="/templateIn/header.xhtml"/>
+        </ui:insert>
+
+        <div class="content">
+                          
+            <div class="container-fluid">
+            <p:messages globalOnly="true" id="msgs" autoUpdate="true" closable="true"/>
+          
+                <div class="row">
+                    <div class="col-md-12">
+                        <div class="card">
+                            <div class="header">
+                            
+                                <h4 class="title">Edit Profile</h4>
+                            </div>
+                            <h5 style="font-style:italic"><h:message for="naiss" errorStyle="color:red;"/></h5>
+                            <div class="content">
+                                <h:form>
+                                    <div class="row">
+                                        <div class="col-md-4">
+                                            <div class="form-group">
+                                           
+                                                <h:outputLabel>Numero Compte </h:outputLabel>
+                                                <h:inputText id="num" required="true" requiredMessage="Saisir le numero de votre compte kredinet" class="form-control" a:placeholder="numero compte" value="#{profilMB.noCompte}"></h:inputText>
+                                          	<h5 style="font-style:italic"><h:message for="num" style="color:red;"/></h5>
+                                          	</div>
+                                         </div>
+                                       <div class="col-md-4">
+                                         <div class="form-group"><br></br>
+                                           	<h:commandButton rendered="#{profilMB.showUpdateButton=='false'}" value="Rechercher" action="#{profilMB.getInfos}" class="btn btn-warning btn-fill pull-right"/>
+                                         	<div class="clearfix"></div>
+                                         </div>
+                                    </div>
+									</div>
+									<div class="row">
+                                        <div class="col-md-12">
+                                            <div class="form-group">
+                                                <h5 style="border-bottom:1px solid #DCDCDC; font-weight:bold;">Information personnel</h5>
+                                            </div>
+                                        </div>
+									</div>
+									<div class="row">
+                                        <div class="col-md-4">
+                                            <div class="form-group">
+                                                <h:outputLabel>Nom</h:outputLabel>
+                                                <h:inputText class="form-control" a:placeholder="nom" value="#{profilMB.nom_me}" disabled="true"></h:inputText>
+                                                <h:inputHidden class="form-control" a:placeholder="nom" value="#{profilMB.nom_me}"/>
+                                            </div>
+                                        </div>
+                                        <div class="col-md-4">
+                                            <div class="form-group">
+                                                <h:outputLabel for="exampleInputEmail1">Prenom</h:outputLabel>
+                                                <h:inputText class="form-control" a:placeholder="prenom" value="#{profilMB.prenom_me}" disabled="true"></h:inputText>
+                                                <h:inputHidden class="form-control" a:placeholder="prenom" value="#{profilMB.prenom_me}"/>
+                                            </div>
+                                        </div>
+                                        
+                                        <div class="col-md-4">
+                                            <div class="form-group">
+                                            <h:outputLabel for="sexe">Sexe</h:outputLabel>
+                                      <h:selectOneMenu id="sexe" value="#{profilMB.sexe_me}" class="form-control"  >
+<f:selectItem id="mas" itemLabel="Masculin" itemValue="Masculin" />
+<f:selectItem id="fem" itemLabel="Feminin" itemValue="Feminin" />
+</h:selectOneMenu>
+										</div></div>
+                                    </div>
+
+                                    <div class="row">
+                                        <div class="col-md-4">
+                                            <div class="form-group">
+                                                <h:outputLabel>CIN/NIF</h:outputLabel>
+                                                <h:inputText class="form-control" a:placeholder="nif/cin" value="#{profilMB.cin_nif_me}" disabled="true"></h:inputText>
+                                                 <h:inputHidden class="form-control" a:placeholder="nif/cin" value="#{profilMB.cin_nif_me}" />
+                                            </div>
+                                        </div>
+                                        <div class="col-md-4">
+                                            <div class="form-group">
+                                                <h:outputLabel>Date Naissance</h:outputLabel>
+                                                <h:inputText id="naiss" class="form-control" a:placeholder="date naissance" value="#{profilMB.datenais_me}" requiredMessage="Entrer la date de naissance"></h:inputText>
+                                            	<h5 style="font-style:italic"><h:message for="naiss" errorStyle="color:red;"/></h5>
+                                            </div>
+                                        </div>
+										<div class="col-md-4">
+                                            <div class="form-group">
+                                                <h:outputLabel>Telephone</h:outputLabel>
+                                                <h:inputText class="form-control" a:placeholder="telephone" value="#{profilMB.phone_me}"></h:inputText>
+                                            </div>
+                                        </div>
+                                    </div>
+									<div class="row">
+                                        <div class="col-md-12">
+                                            <div class="form-group">
+                                                <h5 style="border-bottom:1px solid #DCDCDC;font-weight:bold;">Adresse</h5>
+                                            </div>
+                                        </div>
+									</div>
+                                   <div class="row">
+                                   	<div class="col-md-6">
+                                       <div class="form-group">
+											<h:outputLabel>Departement</h:outputLabel>                                   
+											<h:selectOneMenu id="region" value="#{profilMB.departement}" class="form-control"  >
+												<f:selectItem id="Ouest" itemLabel="Ouest" itemValue="Ouest" />
+												<f:selectItem id="Est" itemLabel="Est" itemValue="Est" />
+												<f:selectItem id="Nord" itemLabel="Nord" itemValue="Nord" />
+												<f:selectItem id="Nord-Est" itemLabel="Nord-Est" itemValue="Nord-Est" />
+												<f:selectItem id="Nord-Ouest" itemLabel="Nord-Ouest" itemValue="Nord-Ouest" />
+												<f:selectItem id="Sud" itemLabel="Sud" itemValue="Sud" />
+												<f:selectItem id="Sud-Est" itemLabel="Sud-Est" itemValue="Sud-Est" />
+												<f:selectItem id="Sud-Ouest" itemLabel="Sud-Ouest" itemValue="Sud-Ouest" />
+												<f:selectItem id="Nippes" itemLabel="Nippes" itemValue="Nippes" />
+												<f:selectItem id="Grande-Anse" itemLabel="Grande-Anse" itemValue="Grande-Anse" />
+											</h:selectOneMenu>
+										</div>
+                                        </div>
+                                        <div class="col-md-6">
+                                            <div class="form-group">
+                                                <h:outputLabel>Ville</h:outputLabel>
+                                                <h:inputText class="form-control" a:placeholder="ville" value="#{profilMB.ville}"></h:inputText>
+                                            </div>
+                                        </div>
+									</div>
+									<div class="row">
+                                        <div class="col-md-6">
+                                            <div class="form-group">
+                                                <h:outputLabel>Rue</h:outputLabel>
+                                                <h:inputText class="form-control"  a:placeholder="rue" value="#{profilMB.rue}"></h:inputText>
+                                            </div>
+                                        </div>
+										<div class="col-md-6">
+                                            <div class="form-group">
+                                                <h:outputLabel>Numero</h:outputLabel>
+                                                <h:inputText class="form-control" a:placeholder="numero" value="#{profilMB.numero}"></h:inputText>
+                                            </div>
+                                        </div>
+                                     </div>
+                                     
+                                     <div class="row">
+	                                     <div class="col-md-12">
+	                                          <div class="form-group">
+	                                           	<h:commandButton  value="Modifier" action="#{profilMB.modifierProfil}" class="btn btn-warning btn-fill pull-right" />
+	                                    		<div class="clearfix"></div>
+	                                          </div>
+	                                    </div>
+                                    </div>
+                                </h:form>
+                            </div>
+                        </div>
+                    </div>
+
+                </div>
+            </div>
+        </div>
+
+		<ui:insert name="footer">
+    		<ui:include src="/templateIn/footer.xhtml"/>
+    	</ui:insert>
+
+    </div>
+</div>
+	
+</body>
+
+</html>

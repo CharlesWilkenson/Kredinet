@@ -1,0 +1,481 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" 
+          "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml"
+      xmlns:ui="http://xmlns.jcp.org/jsf/facelets"
+      xmlns:f="http://xmlns.jcp.org/jsf/core"
+      xmlns:h = "http://java.sun.com/jsf/html"
+      xmlns:a="http://xmlns.jcp.org/jsf/passthrough"
+      xmlns:p="http://primefaces.org/ui">
+
+	<h:head>
+		<h:outputStylesheet library="design/css" name="bootstrap.min.css"/>
+		<h:outputStylesheet library="design/assets/css" name="light-bootstrap-dashboard.css"/>
+		<h:outputStylesheet library="design/css" name="font-awesome.min.css" />
+		<h:outputStylesheet library="design" name="default.css" />
+		<h:outputStylesheet library="design/assets/css" name="pe-icon-7-stroke.css" />
+		
+		<link rel="icon" type="image/png" href="#{resource['design/img/favicon.png']}" />
+		<title>KrediNet</title>
+		<!-- JavaScript -->
+		 <!-- javaScript -->
+  		<h:outputScript library="design" name="js/jquery.min.js" />
+  		<h:outputScript library="design" name="js/bootstrap.min.js" />
+  		<h:outputScript library="design/assets" name="js/light-bootstrap-dashboard.js" />
+	</h:head>
+	
+	<style>
+		.col-md-12 {
+    	position: relative;
+    	min-height: 1px;
+    	padding-right: 0px;
+    	padding-left: 0px;
+	}	
+	</style>
+
+<body>
+	<div class="wrapper">
+    <div class="sidebar" data-color="purple" data-image="#{resource['design/assets/img/sidebar-7.jpg']}">
+
+    	<div class="sidebar-wrapper">
+            <div class="logo">
+                <a class="navbar-brand" href="#"><img src="#{resource['design/img/favicon.png']}" width="60" height="30"></img></a>
+				<br></br>
+            </div>
+
+            <ul class="nav">
+                <li>
+                    <a href="acceuil.xhtml">
+                        <i class="pe-7s-graph"></i>
+                        <p>Acceuil</p>
+                    </a>
+                </li>
+                <li>
+                    <a href="profile.xhtml">
+                        <i class="pe-7s-user"></i>
+                        <p>Profile</p>
+                    </a>
+                </li>
+                <li class="active">
+                    <a href="transaction.xhtml">
+                        <i class="pe-7s-cash"></i>
+                        <p>Transaction</p>
+                    </a>
+                </li>
+                <li>
+                    <a href="activite.xhtml">
+                        <i class="pe-7s-note2"></i>
+                        <p>Activite</p>
+                    </a>
+                </li>
+            </ul>
+    	</div>
+    </div>
+
+    <div class="main-panel">
+    
+    	<ui:insert>
+    		<ui:include src="/templateIn/header.xhtml"/>
+    	</ui:insert>
+		
+        <div class="content">
+            <div class="container-fluid">
+                <div class="row">
+                    <div class="col-md-12">
+                        <div class="card">
+                        <p:messages globalOnly="true" id="msgs" autoUpdate="true" closable="true"/>
+                            <div class="content"><h3>Rapports</h3><hr></hr>
+                                
+									<div class="row">
+										<div class="col-md-11 col-sm-12">
+											<div class="tabs-left">
+												<ul class="nav nav-tabs">
+													<li class="active"><a href="#a" data-toggle="tab"><span class="pe-7s-notebook"></span> Placement</a></li>
+													<li><a href="#c" data-toggle="tab"><span class="pe-7s-bookmarks"> Pr&ecirc;t</span></a></li>
+													<li><a href="#b" data-toggle="tab"><span class="pe-7s-albums"></span> Remboursement</a></li>
+													<li><a href="#d" data-toggle="tab"><span class="pe-7s-target"> Retrait</span></a></li>
+													<li><a href="#e" data-toggle="tab"><span class="pe-7s-target"> Kredit-Trans</span></a></li>
+												</ul>
+												<div class="tab-content">
+													<div class="tab-pane active" id="a">
+														<div class="modal-dialog">
+														<div class="row">
+															<div class="col-md-12">
+																<div class="center">
+																	<div class="box">
+																		 <div class="modal-content">
+																            <div class="modal-header">
+																                <a href="#" data-dismiss="modal" class="class pull-right"><span class="glyphicon glyphicon-remove"></span></a>
+																                <h3 class="modal-title">&Eacute;ffectuer Placement</h3>
+																            </div>
+																            <div class="modal-body">
+																                <div class="row">
+																                    <div class="col-md-12" >
+																                        <div class="card">
+																							<div class="content">
+																								<h:form name="placementFormulaire">
+																									<div class="row" >
+																										<div class="col-md-5">
+																											<label>Num&eacute;ro de Compte</label>
+																											<h:inputText id="numero2" class="form-control"  a:placeholder="num&eacute;ro de compte" value="#{operationMB.noComptePlacement}"/>
+																                                  			<h:message for="numero2" style="color:red;"/>
+																											<!--<input id="numeroComptePlacement" class="form-control bfh-number" type="text" onkeyup="onlyNumberNumeroCompte();" />-->
+																										</div>
+																									</div>
+																									<div class="row">
+																										<div class="col-md-5">
+																											<h:outputLabel>Cat&eacute;gories</h:outputLabel>
+																											<h:selectOneMenu value="#{operationMB.categorie_pla}"  class="form-control" >
+																												<f:selectItem itemLabel="5.000,00 - 25.000,00" itemValue="1" />
+																	                                        	<f:selectItem itemLabel="30,000,00 - 50.000,00" itemValue="2" />
+																	                                        	<f:ajax event="change" listener="#{operationMB.motantCategorie}" render="cbListMontant" execute="@this"/>
+																											</h:selectOneMenu>
+																										</div>
+																										<div class="col-md-3">
+																											<div class="form-group">
+																												<h:outputLabel>Montant</h:outputLabel>
+																												<h:selectOneMenu id="cbListMontant" value="#{operationMB}"  class="form-control">
+																													<f:selectItems value="#{operationMB.lstCategorie}" />
+																													<f:ajax event="change"  />
+																											</h:selectOneMenu>
+																                   								<h:message for="montant2" style="color:red;"/>
+																											</div>
+																										</div>
+																										<div class="col-md-4">
+																											<div class="form-group">
+																												<label style="visibility:hidden">kkkkkkkkk</label>
+																													
+																												<h:commandButton  onclick="return confirm('Voulez vous mettre votre argent en attente ?');" value="Effectuer placement" styleClass="btn btn-warning btn-fill pull-right" action="#{projectController.delete}">
+																		    										<f:ajax execute="@form"  onevent="function(data) {createProjectEventHandler(data);}" render=":tblProject txtNewProjectName txtNewProjectStartDate taNewProjectDesc"/>
+																												</h:commandButton>
+																													
+																											</div>
+																										</div>
+																									</div>
+																								</h:form>
+																							</div>
+																						</div>
+																					</div>
+																                </div>
+																            </div>
+																        </div>
+																	</div>
+																</div>
+															</div>
+														</div></div>
+													</div>
+													
+													<div class="tab-pane" id="b">
+														
+														<div class="modal-dialog">
+														<div class="row">
+															<div class="col-md-12">
+																<div class="center">
+																	<div class="box">
+																		 <div class="modal-content">
+																            <div class="modal-header">
+																                <a href="#" data-dismiss="modal" class="class pull-right"><span class="glyphicon glyphicon-remove"></span></a>
+																                <h3 class="modal-title">&Eacute;ffectuer Remboursement</h3>
+																            </div>
+																           	
+																           	<div class="modal-body">
+																                <div class="row">
+																                     <div class="col-md-12" >
+																                        <div class="card">
+																							<div class="content">
+																			                    <h:form name="retraitValidation">
+																			                    	<div class="row" >
+																									<div class="col-md-5">
+																										<label>Num&eacute;ro Compte</label>
+																										<h:inputText id="numero_compte" class="form-control bfh-number" />
+																									</div>
+																								</div>
+																								<div class="row" >
+																									<div class="col-md-5">
+																										<label>Montant Remboursement</label>
+																										<h:inputText id="montant_retrait" class="form-control bfh-number" onkeypress="if( (event.which &lt; 48 || event.which &gt; 57) ) return false;" />
+																									</div>
+																									<div class="col-md-5">
+																										<div class="form-group">
+																											<label style="visibility:hidden">kkkkkkkkk</label>
+																											<h:commandButton value="Effectuer remboursement" class="btn btn-warning btn-fill pull-right" />
+																											
+																										</div>
+																									</div>
+																								</div>
+																			                    </h:form>
+																                			</div>
+																                		</div>
+																                	</div>
+																                </div>
+            																</div>
+																           	
+																        </div>
+																	</div>
+																</div>
+															</div>
+														</div></div>
+														
+													</div>
+													
+													<div class="tab-pane" id="c">
+														<div class="modal-dialog">
+														<div class="row">
+															<div class="col-md-12">
+																<div class="center">
+																	<div class="box">
+																		 <div class="modal-content">
+																            <div class="modal-header">
+																                <a href="#" data-dismiss="modal" class="class pull-right"><span class="glyphicon glyphicon-remove"></span></a>
+																                <h3 class="modal-title">Pr&ecirc;t</h3>
+																            </div>
+																           	
+																           	<div class="modal-body">
+																                <div class="row">
+																                    <div class="col-md-12" >
+																                        <div class="card">
+																							<div class="content">
+																								<h:form name="placementFormulaire">
+																									<div class="row" >
+																										<div class="col-md-5">
+																											<label>Num&eacute;ro de Compte</label>
+																												<h:inputText id="numeroComptePlacement" value="#{operationMB.noComptePret}" class="form-control bfh-number" type="text"  />
+																											</div>
+																										</div>
+																										<div class="row">
+																											<div class="col-md-4">
+																												<div class="form-group">
+																													<h:outputLabel>Montant pr&ecirc;t</h:outputLabel>
+																													<h:inputText value="#{operationMB.montantPret}" id="myInput" onkeypress="if( (event.which &lt; 48 || event.which &gt; 57) ) return false;" class="form-control bfh-number" >
+																														<f:validateRegex pattern="\d*(.\d+)?"/>
+																													</h:inputText>
+																												</div>
+																											</div>
+																											<div class="col-md-3">
+																												<div class="form-group">
+																													<label style="visibility:hidden">kkkkkkkkk</label>
+																													<button type="submit" class="btn btn-warning btn-fill pull-right">&Eacute;ffectuer</button>
+																												</div>
+																											</div>
+																										</div>
+																									</h:form>
+																								</div>
+																							</div>
+																						</div>
+																                	</div>
+																            	</div>
+																        	</div>
+																		</div>
+																	</div>
+																</div>
+															</div>
+														</div>
+													</div>
+													
+													<div class="tab-pane" id="d">
+														<div class="modal-dialog">
+														<div class="row">
+														
+															<div class="col-md-12">
+																<div class="center">
+																	<div class="box">
+																		 <div class="modal-content">
+																            <div class="modal-header">
+																                <a href="#" data-dismiss="modal" class="class pull-right"><span class="glyphicon glyphicon-remove"></span></a>
+																                <h3 class="modal-title">Retrait</h3>
+																            </div>
+																           	
+																           	 <div class="modal-body">
+																                <div class="row">
+																                    <div class="col-md-12" >
+																			            <h:form name="retraitValidation">
+																			                <div class="col-md-6" >
+																			                    <label>Mon Compte</label>
+																			                    	<div class="card">
+																										<div class="content">
+																			                    			<div class="row" >
+																												<div class="col-md-10">
+																													<label>Num&eacute;ro Compte</label>
+																													<h:inputText id="numero_compte" value="#{operationMB.noCompteRetrait}" class="form-control bfh-number" onkeypress="if( (event.which &lt; 48 || event.which &gt; 57) ) return false;" />
+																												</div>
+																												<div class="col-md-10">
+																													<div class="form-group">
+																														<h:outputText style="visibility:hidden">kkkkkkkkk</h:outputText>
+																														<h:commandButton value="Generer code" action="#{operationMB.sendEmail}" class="btn btn-warning btn-fill pull-right"/>
+																													</div>
+																												</div>
+																											</div>
+																										</div>
+																									</div>
+																								</div>
+																								
+																								<div class="col-md-6" >
+																			                    <label>Mon Compte</label>
+																			                    	<div class="card">
+																										<div class="content">
+																			                    			<div class="row" >
+																												<div class="col-md-10">
+																													<label>Montant retrait</label>
+																													<h:inputText value="#{operationMB.montantRetrait}" onkeypress="if( (event.which &lt; 48 || event.which &gt; 57) ) return false;" class="form-control bfh-number" />
+																												</div>
+																												<div class="col-md-8">
+																													<label>Code confirmation</label>
+																													<h:inputText value="#{operationMB.codeConfRetrait}" id="montant_retrait" class="form-control bfh-number" onkeypress="if( (event.which &lt; 48 || event.which &gt; 57) ) return false;" />
+																												</div>
+																											</div>
+																										</div>
+																									</div>
+																								</div>
+																								
+																								 <!-- Validation -->
+																                   <div class="col-md-12" >
+																                        <div class="card">
+																							<div class="content">
+																			                    <div class="row" >
+																									<div class="col-md-6">
+																										<h:commandButton action="#{operationMB.retrait}" value="Valider retrait" onclickt="PromptMessage()" styleClass="btn btn-warning btn-fill pull-right">
+																		    								<f:ajax execute="@form"  onevent="PromptMessage()"/>
+																										</h:commandButton>
+																									
+																									</div>
+																								</div>
+																                			</div>
+																                		</div>
+																                	</div>
+																								
+																			                 </h:form>
+																                			
+																                	</div>
+																                </div>
+																            </div>
+																           	
+																        	</div>
+																		</div>
+																	</div>
+																</div>
+															</div>
+															
+															<div style="margin-bottom:200px;" class="col-md-4"></div>
+															
+														</div>
+													</div>
+													
+													<div class="tab-pane" id="e">
+														<div class="modal-dialog">
+														<div class="row">
+															
+															<div class="col-md-12">
+																<div class="center">
+																	<div class="box">
+																		 <div class="modal-content">
+																            <div class="modal-header">
+																                <a href="#" data-dismiss="modal" class="class pull-right"><span class="glyphicon glyphicon-remove"></span></a>
+																                <h3 class="modal-title">Kredi-Trans</h3>
+																            </div>
+																           	
+																           	<div class="modal-body">
+																                <div class="row">
+																                <h:form name="transferttValidation">
+																                <!--Compte depart  -->
+																         			<div class="col-md-6" >
+																						<label>Compte du donateur</label>
+																                        <div class="card">
+																							<div class="content">
+																			                    <div class="row" >
+																									<div class="col-md-10">
+																										<label>Numero Compte du donateur</label>
+																										<h:inputText id="numero_compteD" value="#{operationMB.noCompteDonateur}" class="form-control bfh-number" type="text"  />
+																									</div>
+																									<div class="col-md-10">
+																										<div class="form-group">
+																											<h:outputText id="code" style="visibility:hidden" />
+																											<h:commandButton action="#{operationMB.sendEmail}" value="G&eacute;n&eacute;rer code validation" styleClass="btn btn-warning btn-fill pull-right">
+																    											
+																											</h:commandButton>
+																											<h:outputText id="confirmationmail" />
+																										</div>
+																									</div>
+																								</div>
+																								
+																                			</div>
+																                		</div>
+																                	</div>
+																                   
+																                   <!-- destination  -->
+																                   <div class="col-md-6" >
+																                   		<label>Compte du b&eacute;n&eacute;ficiaire</label>
+																                        <div class="card">
+																							<div class="content">
+																			                    <div class="row" >
+																									<div class="col-md-10">
+																										<label>Num&eacute;ro Compte</label>
+																										<h:inputText id="numero_compte" value="#{operationMB.noCompteBeneficiaire}" class="form-control bfh-number"  />
+																									</div>
+																								</div>
+																								<div class="row" >
+																									<div class="col-md-8">
+																										<label>Montant</label>
+																										<h:inputText onkeypress="if( (event.which &lt; 48 || event.which &gt; 57) ) return false;"  id="montant_retrait" value="#{operationMB.montantTransfere}" class="form-control bfh-number" />
+																									</div>
+																								</div>
+																                			</div>
+																                		</div>
+																                	</div>
+																                   
+																                   <!-- Validation -->
+																                   <div class="col-md-12" >
+																                        <div class="card">
+																							<div class="content">
+																			                    <div class="row" >
+																			                    	<div class="col-md-6">
+																										<h:inputText id="code_validation" onkeypress="if( (event.which &lt; 48 || event.which &gt; 57) ) return false;" a:placeholder="Code Validation" value="#{operationMB.codeConfRetrait}" class="form-control bfh-number" />
+																									</div>
+																			                    
+																									<div class="col-md-6">
+																										
+																										<h:commandButton action="#{operationMB.transfere}" value="Valider transfert" onclickt="PromptMessage()" styleClass="btn btn-warning btn-fill pull-right">
+																		    								
+																										</h:commandButton>
+																									
+																									</div>
+																								</div>
+																                			</div>
+																                		</div>
+																                	</div>
+																                  
+																                	
+																                   </h:form>
+																                </div>
+																            </div>
+																           	
+																        	</div>
+																		</div>
+																	</div>
+																</div>
+																
+																<div style="margin-bottom:180px;" class="col-md-4"></div>
+															
+															</div>
+														</div>
+													</div>
+													
+												</div><!-- /tab-content -->
+											</div><!-- /col -->
+										</div><!-- /row -->
+										</div>
+								</div><!--content-->
+							</div><!--card-->
+						</div><!--col-md-12-->
+					</div><!--row-->
+				</div><!-- container-fluid-->
+			</div><!--content-->
+			
+			<ui:insert>
+				<ui:include src="/templateIn/footer.xhtml"/>
+			</ui:insert>
+			
+		</div>
+	</div>
+	
+</body>
+
+</html>

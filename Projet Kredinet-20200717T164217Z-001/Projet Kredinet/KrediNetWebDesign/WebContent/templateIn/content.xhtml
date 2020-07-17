@@ -1,0 +1,55 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" 
+          "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml"
+      xmlns:ui="http://xmlns.jcp.org/jsf/facelets"
+      xmlns:h="http://java.sun.com/jsf/html">
+
+<body>
+	<ui:composition>        
+        <div class="sidebar" data-color="purple" data-image="#{resource['design/assets/img/sidebar-7.jpg']}">
+    	<div class="sidebar-wrapper">
+            <div class="logo">
+                <a class="navbar-brand" href="#"><img src="#{resource['design/img/favicon.png']}" width="60" height="30"></img></a>
+				<br></br>
+            </div>
+
+            <ul class="nav">
+                <li>
+                    <a href="acceuil.xhtml">
+                        <i class="pe-7s-graph"></i>
+                        <p>Acceuil</p>
+                    </a>
+                </li>
+                <li>
+                    <a href="profile.xhtml">
+                        <i class="pe-7s-user"></i>
+                        <p>Profile</p>
+                    </a>
+                </li>
+                <li class="active" >
+                    <a href="transaction.xhtml">
+                        <i class="pe-7s-cash"></i>
+                        <p>Transaction</p>
+                    </a>
+                </li>
+                <li>
+                    <a href="activite.xhtml">
+                        <i class="pe-7s-note2"></i>
+                        <p>Activite</p>
+                    </a>
+                </li>
+                <li>
+                    <a href="rapport.xhtml">
+                        <i class="pe-7s-news-paper"></i>
+                        <p>Rapport</p>
+                    </a>
+                </li>
+            </ul>
+            
+    	</div>
+    </div>
+        
+	</ui:composition>
+</body>
+
+</html>

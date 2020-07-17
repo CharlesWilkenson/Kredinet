@@ -1,0 +1,115 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" 
+          "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml"
+      xmlns:ui="http://xmlns.jcp.org/jsf/facelets"
+      xmlns:f="http://xmlns.jcp.org/jsf/core"
+      xmlns:h = "http://java.sun.com/jsf/html"
+      xmlns:a="http://xmlns.jcp.org/jsf/passthrough">
+<h:head>
+	<h:outputStylesheet library="design/css" name="style.css"/>
+  	<h:outputStylesheet library="design" name="index.css"/>	
+  	<h:outputStylesheet library="design/css" name="paper-bootstrap-wizard-conf.css"/>
+  	<h:outputStylesheet library="design/css" name="demo.css"/>
+  	<h:outputStylesheet library="design/css" name="font-awesome.min.css" />
+  	<h:outputStylesheet library="design/css" name="bootstrap.min.css"/>
+  	<!-- javaScript -->
+  	<h:outputScript library="design" name="js/jquery.min.js" />
+  		<h:outputScript library="design" name="js/bootstrap.min.js" />
+  	<link rel="icon" type="image/png" href="#{resource['design/img/favicon.png']}" />
+  <title><ui:insert name="title">Inscription</ui:insert></title>
+</h:head>
+
+<style>
+  	.navbar-brand {
+    float: left;
+    height: 50px;
+    padding: 10px 7px;
+    font-size: 18px;
+    line-height: 20px;
+	}
+	.wizard-card .tab-content {
+    min-height: 155px;
+    padding: 0px 20px 10px;
+}
+.wizard-card {
+    min-height: 310px;
+    box-shadow: 0 20px 16px -15px rgba(0, 0, 0, 0.57);
+}
+  </style>
+  
+<h:body id="page">
+
+		<!-- tete de page -->
+		<div id="header">
+			<ui:insert name="header">
+				<ui:include src="/template/headerInscription.xhtml"></ui:include>
+			</ui:insert>
+		</div>
+		
+	
+		<div class="col-sm-10 col-sm-offset-1">
+		<!--      Wizard container        -->
+		<div class="wizard-container">
+		    <div class="card wizard-card" data-color="orange" id="wizardProfile">
+		        <h:form name="validateInscription">
+		            <div class="wizard-header text-center">
+		                <h3 class="wizard-title">Validation Client</h3>	
+		            </div>
+		            <div class="tab-content">
+		                <div class="tab-pane active" id="about">
+		                    <div class="row">
+		                    	<div class="alert alert-success">
+                    				<a href="#" class="close" data-dismiss="alert" aria-label="close">&times;</a>
+                    				<div class="panel panel-group">
+                        				<div class="panel panel-info">
+				                            <div class="panel-heading">
+				                                <h3 class="panel-title">
+				                                    <i class="fa fa-info"></i> Message
+				                                </h3>
+				                            </div>
+				                            <div class="panel panel-body">
+				                                <table>
+				                                    <tr>
+				                                        <td>
+				                                            <strong>
+				                                                <h5 class="info-text" style="color:green;font-style: italic;"> Votre Compte Kredi-Net a ete creer avec succes !</h5>
+				                                            </strong>
+				                                        </td>
+				                                    </tr>
+				                                    <tr>
+				                                    	<td>
+															<h5 class="info-text" style="font-size:16px; font-style: italic;">Kredi-Net vient de vous envoyer votre numero de Compte sur votre</h5>
+				                                    	</td>
+				                                   
+				                                    	<td>
+				                                    		<div class="col-sm-10 col-sm-offset-1" >
+																<div class="pull-center">
+																	<h:commandButton action="#{navigationMembre.longinPage}"  class="btn btn-next btn-fill btn-warning btn-wd" value="Acceder a la page de connexion" />
+																</div>
+															</div>
+				                                    	</td>
+				                                    </tr>
+				                                </table>
+				                            </div>
+                        				</div>
+                        			</div>
+                    			</div>
+							</div>	
+		                </div>
+		            </div>	
+		        </h:form>
+		    </div>
+		</div> <!-- wizard container -->
+	</div>
+	<!--<div class="col-sm-3">
+		<div class="wizard-container">
+		    <div class="card wizard-card" data-color="orange" id="wizardProfile">
+		        lkkk;kj;j;j;l;
+		    </div>
+		</div> 
+	</div>-->
+	<!-- fin espace inscription-->
+		
+</h:body>
+
+</html>

@@ -1,0 +1,344 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" 
+          "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml"
+      xmlns:ui="http://xmlns.jcp.org/jsf/facelets"
+      xmlns:f="http://xmlns.jcp.org/jsf/core"
+      xmlns:h = "http://java.sun.com/jsf/html"
+      xmlns:a="http://xmlns.jcp.org/jsf/passthrough">
+<h:head>
+	
+  	<h:outputStylesheet library="design" name="index.css"/>	
+  	<h:outputStylesheet library="design/css" name="paper-bootstrap-wizard-conf.css"/>
+  	<h:outputStylesheet library="design/css" name="demo.css"/>
+  	<h:outputStylesheet library="design/css" name="bootstrap.min.css"/>
+  	<h:outputStylesheet library="design/css" name="font-awesome.min.css" />
+  	<h:outputScript library="design" name="js/jquery.min.js" />
+  		<h:outputScript library="design" name="js/transaction.js" />
+  		<h:outputScript library="design" name="js/montant-select.js" />
+  		<h:outputScript library="design" name="js/bootstrap.min.js" />
+  	<!-- javaScript -->
+  	<link rel="icon" type="image/png" href="#{resource['design/img/favicon.png']}" />
+  <title><ui:insert name="title">Inscription</ui:insert></title>
+</h:head>
+
+  <script> 
+  
+  function formValidation(oEvent) { 
+	  window.onload = function () { 
+	  }
+  
+  </script>
+  
+  <script type="text/javascript">
+    function validateForm() {
+    	var mailformat = /^\w+([\.-]?\w+)*@\w+([\.-]?\w+)*(\.\w{1,3})+$/; 
+        var email = document.getElementById("validationInJSFFormID:email");
+        
+        if(email.value.match(mailformat))  
+        {  
+      	  document.getElementById("btnSignUp").disabled = false;
+        }
+        else{
+        	document.getElementById("btnSignUp").disabled = true;
+        }
+       
+    }
+</script>
+  <style>
+.modal-header, .close {
+      background-color:#F3BB45;
+      color: #fff !important;
+      text-align: center;
+      font-size: 30px;
+  }
+  	.navbar-brand {
+    float: left;
+    height: 50px;
+    padding: 10px 7px;
+    font-size: 18px;
+    line-height: 20px;
+	}
+	.wizard-card .tab-content {
+    min-height: 225px;
+    padding: 0px 20px 10px;
+	}
+	.textAide{
+		text-align:justify;
+		font-family: inherit;
+		font-size: 14px;
+		color: #555;    
+		line-height: 1.42857143;
+	}
+	.text-termes{
+		text-align:justify;
+		font-family: inherit;
+		font-size: 20px;
+		color: #555;    
+		line-height: 1.42857143;
+	}
+	.wrimagecard-topimage_header {
+	    padding: 15px;
+	}
+	.wizard-card-etape {
+	    min-height: 600px;
+	    box-shadow: 0 20px 16px -15px rgba(0, 0, 0, 0.57);
+	}
+	.col-sm-4{
+		position: relative;
+    	min-height: 1px;
+    	padding-right: 15px;
+    	padding-left: 15px;
+	}
+#info
+{
+	font-size: 18px;
+	color: #555;
+	text-align: center;
+	margin-bottom: 25px;
+}
+
+a{
+	color: #074E8C;
+}
+
+.scrollbar
+{
+	margin-left:0px;
+	float: left;
+	height: 400px;
+	width: 580px;
+	background: #FFFF;
+	overflow-y: scroll;
+	margin-bottom: 25px;
+}
+
+.force-overflow
+{
+	min-height: 450px;
+	margin-right:15px;
+}
+
+#wrapper
+{
+	text-align: center;
+	width: 500px;
+	margin: auto;
+}
+/*
+ *  STYLE 9
+ */
+
+#style-9::-webkit-scrollbar-track
+{
+	-webkit-box-shadow: inset 0 0 6px rgba(0,0,0,0.3);
+	background-color: #F5F5F5;
+}
+
+#style-9::-webkit-scrollbar
+{
+	width: 10px;
+	background-color: #F5F5F5;
+}
+
+#style-9::-webkit-scrollbar-thumb
+{
+	background-color: #F90;	
+	background-image: -webkit-linear-gradient(90deg,
+	                                          rgba(255, 255, 255, .2) 25%,
+											  transparent 25%,
+											  transparent 50%,
+											  rgba(255, 255, 255, .2) 50%,
+											  rgba(255, 255, 255, .2) 75%,
+											  transparent 75%,
+											  transparent)
+}
+
+  </style>
+<h:body id="page">
+
+<!-- Pupop Placement -->
+<div class="modal fade product_view" id="product_view">
+    <div class="modal-dialog">
+        
+        <div class="modal-content">
+            <div class="modal-header">
+                <a href="#" data-dismiss="modal" class="class pull-right"><span class="glyphicon glyphicon-remove"></span></a>
+                <h3 class="modal-title">Termes et conditions</h3>
+            </div>
+            <div class="modal-body">
+                <div class="row">
+                    <div class="col-md-12" >
+                    	<div class="scrollbar" id="style-9">
+                    		<div class="force-overflow">
+  								<div id="tos-scroll" class="tos-scroll-area" tabindex="0">
+  									<div id="tos-header" class="tos-header">
+  										<h3>ATTENTION !</h3>
+  										<p>
+  											<h4 class="text-termes">KrediNet garantit la confidentialité des transactions de
+  											 ses utilisateurs en mettant en place différentes dispositions
+  											  et différents niveau de sécurité. Dès l’étape de votre inscription
+  											   jusqu’à votre connexion avec votre numéro de compte, KrediNet 
+  											   garantit votre pleine et entière sécurité. En acceptant toutes 
+  											   les termes et les conditions qui sont détaillées dans ce document, 
+  											   vous vous pliez automatiquement aux exigences de la Plate-forme.</h4>
+  										</p>
+  									</div>
+  									<div id="tos-text" class="tos-text-div">
+  										<div id="tos-header" class="tos-header">
+  											<h4><strong style="color: #bdbdbd; font-size=25px ">Comment fonctionne KrediNet ?</strong></h4>
+  											<p>
+  												<h5 class="text-termes">
+  												KrediNet en tant que plate-forme de Crowdfunding, donne accès à tous ses crowdfunders
+  												 à effectuer les transactions comme : les dépôts, les placements, les retraits, 
+  												 les transferts, les prêts et les remboursements. Chaque transaction sur la plate-forme 
+  												 comprend un certain nombre d’étapes à suivre qui est mentionnées à la partie d’aide 
+  												 de la page en question.<br></br>
+												Un certain nombre de conditions est à respecter quand vous exécutez une 
+												fonctionnalité, les étapes à suivre sont strictement recommandés afin d’éviter 
+												tous erreurs. Toutes les transactions respectant les normes de la plate-forme 
+												sont non-remboursable par KrediNet.</h5>
+  											</p>
+  											
+  											<h4><strong style="color: #bdbdbd; font-size=25px ">Dépôts</strong></h4>
+  											<p>
+  												<h5 class="text-termes">
+  												Pour les opérations de dépôts vous vous assurez que le numéro de téléphone 
+  												qui a été enregistré sur votre profil lors de la configuration de celle-ci
+  												 est celui vraiment que vous allez utiliser pour transférer le montant que 
+  												 vous souhaitiez déposer sur votre compte KrediNet. Car si vous utilisez un
+  												  numéro différent de celui qui est enregistré dans votre profil, vous perdez
+  												   automatiquement cette somme car elle est non-remboursable par la plate-forme.
+  												</h5>
+  											</p>
+  											
+  											<h4><strong style="color: #bdbdbd; font-size=25px ">Placements</strong></h4>
+  											<p>
+  												<h5 class="text-termes">
+  												Le placement c’est une opération qui exige d’avoir préalablement 
+  												renfloué votre solde d’un montant supérieur au montant initial des 
+  												placements. Quand vous effectuez un placement vous devez suivre de 
+  												près  toutes les étapes mentionnées dans la partie aide. Les erreurs 
+  												que vous commettrez au niveau du montant ou de la catégorie seront 
+  												irréversibles et ne seront pas remboursables.
+  												</h5>
+  											</p>
+  											
+  										</div>
+  									
+  									</div>
+  								</div>
+  							</div>
+  						</div>
+                        <h:form>
+                        	<input type="reset" class="btn btn-next btn-fill btn-default btn-wd" id="btnReset" value="Reset"/>
+                        	<h:commandButton partialSubmit="true" ajax="true" process=":validationInJSFFormID" action="#{membreMB.enregistrerMembre()}"  class="btn btn-next btn-fill btn-warning btn-wd" value="S'incrire" />
+                        </h:form>
+					</div>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+
+		<!-- tete de page -->
+		<div id="header">
+			<ui:insert name="header">
+				<ui:include src="/template/headerInscription.xhtml"></ui:include>
+			</ui:insert>
+		</div>
+		
+	
+		<div class="col-sm-6 col-sm-offset-1">
+		<!--      Wizard container        -->
+		<div class="wizard-container">
+		    <div class="card wizard-card" data-color="orange" id="wizardProfile">
+		        <h:form id="validationInJSFFormID">
+		            <div class="wizard-header text-center">
+		                <h3 class="wizard-title">Inscription</h3>	
+		            </div>
+		            <div class="tab-content">
+		                <div class="tab-pane active" id="about">
+		                    <div class="row">
+								<h5 class="info-text"> Veuillez saisir les information suivantes.</h5>
+								<div class="col-sm-10 col-sm-offset-1" >
+								
+									<div class="form-group">
+									
+										<h:inputText value="#{membreMB.email_me}" onkeypress="validateForm" id="email" required="true" requiredMessage="Saisir votre adresse email"  class="form-control" a:placeholder="Saisir votre email">
+											<f:ajax event="keyup" execute="@this" render="validatorMailMessage" />
+    										<f:validator validatorId="ExistenceEmailValidator" />
+										</h:inputText>
+									   	<h5 style="font-style:italic"><h:message id="validatorMailMessage" for="email" errorStyle="color:red;"/></h5>
+									</div>
+									
+									<div class="form-group">
+										<h:inputSecret value="#{membreMB.motdePasse}" binding="#{composantMotDePasse}" id="password" size="20" maxlength="20" required="true" requiredMessage="Saisir votre mot de passe"  class="form-control" a:placeholder="Saisir votre Mot de passe">
+											<f:ajax event="keyup" execute="password confirmPassword" render="validatorPasswordMessage ValidatorConfirmPassword" />
+    										<f:validator validatorId="MotDePasseValidator" />
+										</h:inputSecret>
+										
+									   	<h5 style="font-style:italic"><h:message id="validatorPasswordMessage" for="password" style="color:red;"/></h5>
+									</div>
+									
+									<div class="form-group">
+										<h:inputSecret value="#{membreMB.confirmerPassword}" id="confirmPassword" required="true" requiredMessage="Confirmer mot de passe" class="form-control" a:placeholder="Confirmer mot de passe">
+											<f:attribute name="composantMotDePasse" value="#{composantMotDePasse}" />
+    										<f:ajax event="keyup" execute="password confirmPassword" render="validatorConfirmPassword" />
+											<f:validator validatorId="confirmationMotDePasseValidator" />
+										</h:inputSecret>
+									 	<h5 style="font-style:italic"><h:message id="validatorConfirmPassword" for="confirmPassword" style="color:red;"/></h5>
+									</div>
+									
+									<h5 style="font-style:italic"><h:messages globalOnly="true" errorStyle="color:red;" /></h5>
+									<div class="pull-right">
+										<input type="button" id="btnSignUp" class="btn btn-warning btn-fill pull-right" data-toggle="modal" data-target="#product_view" value="Prochaine &eacute;tape " />
+										<h:commandButton action="#{membreMB.enregistrerMembre()}"  class="btn btn-next btn-fill btn-warning btn-wd" value="S'incrire" />
+                        	
+									</div>
+								</div>
+							</div>	
+		                </div>
+		            </div>	
+		        </h:form>
+		    </div>
+		</div> <!-- wizard container -->
+	</div>
+	
+	<div class="col-sm-4">
+		<div class="wizard-container">
+		    <div class="card wizard-card-etape" data-color="orange" id="wizardProfile">
+		        <div class="col-md-12 col-sm-12">
+					<div class="wrimagecard-topimage_header" style="background-color:  rgba(51, 105, 232, 0.1)">
+						<center><i class="fa fa-question-circle" style="color:#F3BB45; font-size:30px"> </i></center>
+					</div>
+					<div class="wrimagecard-topimage_title">
+						<h5 class="textAide">La plate-forme KrediNet est heureux de vous accueillir dans son espace et vous souhaite la bienvenue. 
+						Espérant bientôt vous compter parmi ses crowdfunders, elle est prête à vous guider tout de suite à vous 
+						enrengistrer comme membre de KrediNet.</h5>
+						<strong style="color: #bdbdbd;">Les etapes à suivres :</strong>
+			  					<p><h5 class="textAide"><span class="fa fa-envelope"></span> Saisissez votre adresse de courriel électronique (exemple@kredinet.com).</h5></p>
+			  					<p><h5 class="textAide"><span class="fa fa-lock"></span> Saisissez votre mot de passe (huit caractères au moins, inclut : 
+			  					une majuscule, un chiffre et un caractère spécial au moins).</h5></p>
+			  					<p><h5 class="textAide"><span class="fa fa-lock"></span> Confirmez votre mot de passe.</h5></p>
+			  					<p><h5 class="textAide"><span class="glyphicon glyphicon-envelope"></span> Après avoir enregistré avec succès, 
+			  					rendez-vous sur l’adresse de courriel électronique que vous avez saisi lors de la première 
+			  					étape de votre enregistrement, vous recevez un courriel contenant un lien qui va vous rediriger 
+			  					vers notre page de vérification 
+			  					de votre compte membre en cliquant dessus.</h5></p>
+						
+					</div>		
+				</div>
+		    </div>
+		</div> 
+	</div>
+	<!-- fin espace inscription-->
+	
+	<!-- <div id="header">
+	<ui:insert>
+			<ui:include src="/template/footer.xhtml"/>
+		</ui:insert>
+		</div>-->
+		
+</h:body>
+
+</html>

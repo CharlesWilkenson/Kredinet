@@ -1,0 +1,182 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" 
+          "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml"
+ 	  xmlns:ui="http://xmlns.jcp.org/jsf/facelets"
+      xmlns:f="http://xmlns.jcp.org/jsf/core"
+      xmlns:h = "http://java.sun.com/jsf/html"
+      xmlns:a="http://xmlns.jcp.org/jsf/passthrough">
+
+	<h:head>
+		<h:outputStylesheet library="design/css" name="bootstrap.min.css"/>
+		<h:outputStylesheet library="design/assets/css" name="light-bootstrap-dashboard.css"/>
+		<h:outputStylesheet library="design/css" name="font-awesome.min.css" />
+		
+		<h:outputStylesheet library="design/assets/css" name="pe-icon-7-stroke.css" />
+		
+		<link rel="icon" type="image/png" href="#{resource['design/img/favicon.png']}" />
+		<title>KrediNet</title>
+		<!-- JavaScript -->
+		 <!-- javaScript -->
+  		<h:outputScript library="design" name="js/jquery.min.js" />
+  		<h:outputScript library="design" name="js/bootstrap.min.js" />
+  		<h:outputScript library="design/assets" name="js/light-bootstrap-dashboard.js" />
+	</h:head>
+	<style>
+.nav-tabs { border-bottom: 2px solid #DDD; }
+    .nav-tabs > li.active > a, .nav-tabs > li.active > a:focus, .nav-tabs > li.active > a:hover { border-width: 0; }
+    .nav-tabs > li > a { border: none; color: #F3BB45; }
+        .nav-tabs > li.active > a, .nav-tabs > li > a:hover { border: none; color: #FFBD4F !important; background: transparent; }
+        .nav-tabs > li > a::after { 
+			content: ""; 
+			background: #FFBD4F; 
+			height: 2px; 
+			position: absolute; 
+			width: 100%; 
+			left: 0px; 
+			bottom: -1px; 
+			transition: all 250ms ease 0s; 
+			transform: scale(0); 
+			}
+    .nav-tabs > li.active > a::after, .nav-tabs > li:hover > a::after { transform: scale(1); }
+.tab-nav > li > a::after { background: #FFBD4F none repeat scroll 0% 0%; color: #fff; }
+.tab-pane { padding: 15px 0; }
+.tab-content{padding:20px}
+</style>
+<body>
+	<div class="wrapper">
+    <div class="sidebar" data-color="purple" data-image="#{resource['design/assets/img/sidebar-7.jpg']}">
+
+    	<div class="sidebar-wrapper">
+            <div class="logo">
+                <a class="navbar-brand" href="#"><img src="#{resource['design/img/favicon.png']}" width="60" height="30"></img></a>
+				<br></br>
+            </div>
+
+            <ul class="nav">
+                <li>
+                    <a href="acceuil.xhtml">
+                        <i class="pe-7s-graph"></i>
+                        <p>Acceuil</p>
+                    </a>
+                </li>
+                <li>
+                    <a href="profile.xhtml">
+                        <i class="pe-7s-user"></i>
+                        <p>Profile</p>
+                    </a>
+                </li>
+                <li>
+                    <a href="transaction.xhtml">
+                        <i class="pe-7s-cash"></i>
+                        <p>Transaction</p>
+                    </a>
+                </li>
+                <li class="active">
+                    <a href="activite.xhtml">
+                        <i class="pe-7s-note2"></i>
+                        <p>Activite</p>
+                    </a>
+                </li>
+				<li>
+                    <a href="rapport.xhtml">
+                        <i class="pe-7s-news-paper"></i>
+                        <p>Rapport</p>
+                    </a>
+                </li>
+                
+            </ul>
+    	</div>
+    </div>
+
+    <div class="main-panel">
+		
+		<ui:insert>
+			<ui:include src="/templateIn/header.xhtml"/>
+		</ui:insert>
+
+        <div class="content">
+            <div class="container-fluid">
+				<div class="row">
+		            <div class="col-md-12">
+						<div class="card">
+                            <ul class="nav nav-tabs" role="tablist">
+                                <li role="presentation" class="active"><a href="#home" aria-controls="home" role="tab" data-toggle="tab">Activite</a></li>
+                                <li role="presentation"><a href="#profile" aria-controls="profile" role="tab" data-toggle="tab">Tableau</a></li>
+							</ul>
+                            <!-- Tab panes -->
+                            <div class="tab-content">
+                                <div role="tabpanel" class="tab-pane active" id="home">
+									<h:form action="/hms/accommodations" method="GET"> 
+									
+										<div class="row">
+											<div class="col-xs-6 col-md-6">
+												<div class="input-group">
+													<div class="input-group-btn">
+														<div class="btn-group">
+															<button class="btn btn-default dropdown-toggle" type="button" data-toggle="dropdown">
+																<span>
+																	<i class="et-down fa fa-lg fa-list"></i>
+																</span>
+																<span class="caret"></span>
+															</button>
+
+															<ul class="dropdown-menu" role="menu">
+																<li>
+																	<a href="#">
+																		<i class="fa et-down fa-search"></i>&nbsp;&nbsp;&nbsp; Tous les transactions
+																	</a>
+																</li>
+																<li>
+																	<a href="#">
+																		<i class="fa fa-share-alt-square"></i>&nbsp;&nbsp;&nbsp; Investissement
+																	</a>
+																</li>
+																<li>
+																	<a href="#">
+																		<i class="fa fa-money"></i>&nbsp;&nbsp;&nbsp; Pret
+																	</a>
+																</li>
+																<li>
+																	<a href="#">
+																		<i class="fa fa-exchange"></i>&nbsp;&nbsp;&nbsp; Remboursement
+																	</a>
+																</li>
+																<li>
+																	<a href="#">
+																		<i class="fa fa-money"></i>&nbsp;&nbsp;&nbsp; Retrait
+																	</a>
+																</li>
+															</ul>
+														</div>
+													</div>
+													<h:inputText class="form-control" a:placeholder="Search" id="txtSearch"></h:inputText>
+													<div class="input-group-btn">
+														<button class="btn btn-primary" type="button">
+															<span class="fa fa-search"></span>
+														</button>
+													</div>
+												</div>
+											</div>
+										</div>
+									</h:form>
+								</div>
+                                <div role="tabpanel" class="tab-pane" id="profile">Lorem Ipsum is simply dummy text of 
+								the printing and typesetting industry. Lorem Ipsum has been the industry's standard dummy 
+								text ever since the 1500s, when an unknown printer took a galley of type and scrambled 
+								it to make a type specimen book.</div>
+                            </div>
+						</div>
+                    </div>
+				</div>
+            </div><!-- container-fluid-->
+        </div><!--content-->
+		
+		<ui:insert>
+			<ui:include src="/templateIn/footer.xhtml"/>
+		</ui:insert>
+        
+    </div>
+</div>
+</body>
+
+</html>

@@ -1,0 +1,207 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" 
+          "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml"
+      xmlns:ui="http://xmlns.jcp.org/jsf/facelets"
+      xmlns:f="http://xmlns.jcp.org/jsf/core"
+      xmlns:h = "http://java.sun.com/jsf/html"
+      xmlns:a="http://xmlns.jcp.org/jsf/passthrough">
+<h:head>
+  <title>Creation Compte</title>
+  	<link rel="icon" type="image/png" href="#{resource['design/img/favicon.png']}" />
+  	<h:outputStylesheet library="design/css" name="bootstrap.min.css"/>
+  	<h:outputStylesheet library="design/css" name="awesomplete.css"/>
+	<h:outputStylesheet library="design/css" name="themify-icons.css"/>
+  	<h:outputStylesheet library="design/css" name="paper-bootstrap-wizard-conf.css"/>
+  	<link rel="icon" type="image/png" href="#{resource['design/img/favicon.png']}" />
+  	
+  	
+	<h:outputScript library="design" name="js/jquery.min.js" />
+	<h:outputScript library="design" name="js/bootstrap.min.js" />
+	<h:outputScript library="design" name="js/jquery.validate.min.js" />
+	<h:outputScript library="design" name="js/awesomplete.min.js" />
+	<h:outputScript library="design" name="js/jquery.bootstrap.wizard.js" />
+	<h:outputScript library="design" name="js/paper-bootstrap-wizard.js" />
+</h:head>
+
+<style>
+  	.navbar-brand {
+    float: left;
+    height: 50px;
+    padding: 10px 7px;
+    font-size: 18px;
+    line-height: 20px;
+	}
+	.wizard-card .info-text {
+    text-align: center;
+    margin-bottom:20px;
+    margin-top:30px;
+    padding-bottom: 5px;
+    padding-top: 60px;
+}
+  </style>
+
+<h:body id="page">
+	<!-- tete de page -->
+		<div id="header">
+			<ui:insert name="header">
+				<ui:include src="/template/headerInscription.xhtml"></ui:include>
+			</ui:insert>
+		</div>
+		
+		<div class="col-sm-8 col-sm-offset-2">
+
+		            <!--      Wizard container        -->
+		            <div class="wizard-container">
+
+		                <div class="card wizard-card" data-color="orange" id="wizardProfile">
+		                    <h:form name="valideCompte">
+
+		                    	<div class="wizard-header text-center">
+		                        	<h3 class="wizard-title">Creer votre profile</h3>
+									<p class="category">Ces information nous permettra de savoir plus sur vous</p>
+		                    	</div>
+
+								<div class="wizard-navigation">
+									<div class="progress-with-circle">
+									     <div class="progress-bar" role="progressbar" aria-valuenow="1" aria-valuemin="1" aria-valuemax="3" style="width: 16.6667%;"></div>
+									</div>
+									<ul class="nav nav-pills">
+			                            <li class="active" style="width: 33.3333%;">
+											<a href="#about" data-toggle="tab" aria-expanded="true">
+												<div class="icon-circle checked">
+													<i class="ti-user"></i>
+												</div>
+												A Propos
+											</a>
+										</li>
+			                            <li style="width: 33.3333%;">
+											<a href="#account" data-toggle="tab">
+												<div class="icon-circle">
+													<i class="ti-settings"></i>
+												</div>
+												Contact Information
+											</a>
+										</li>
+			                            <li style="width: 33.3333%;">
+											<a href="#address" data-toggle="tab">
+												<div class="icon-circle">
+													<i class="ti-map"></i>
+												</div>
+												Adresse
+											</a>
+										</li>
+			                        </ul>
+								</div>
+		                        <div class="tab-content">
+		                            <div class="tab-pane active" id="about">
+		                            	<div class="row">
+											<h5 class="info-text"> Veuillez saisir les information suivantes.</h5>
+											
+											<div class="col-sm-8 col-sm-offset-2">
+												<div class="form-group">
+													<h:inputText required="true" requiredMessage="Saisir votre nom" id="nom"  class="form-control" a:placeholder="Nom" value="#{compteMB.nom_me}"/>
+                                           			<h:message for="nom" style="color:red;"/>
+												</div>
+												<div class="form-group">
+													<h:inputText required="true" requiredMessage="Saisir votre prenom" id="prenom" class="form-control" a:placeholder="Prenom" value="#{compteMB.prenom_me}"/>
+                                            		<h:message for="prenom" style="color:red;"/>  
+												</div>
+												<div class="form-group">
+													<h:inputText required="true" requiredMessage="Saisir votre telephone" id="tel"  value="#{compteMB.phone_me}" class="form-control" a:placeholder="Telephone"/>
+													<h:message for="tel" style="color:red;"/> 
+												</div>
+												<div class="form-group">
+													<a href="#account" class="btn btn-warning btn-fill pull-right" data-toggle="tab">
+														Suivant
+													</a>
+												</div>
+											</div>
+											<!-- -->
+											
+										</div>
+		                            </div>
+									
+									<div class="tab-pane" id="account">
+		                                <h5 class="info-text"> Information Additionnelle </h5>
+		                                <div class="row">
+		                                    <div class="col-sm-8 col-sm-offset-2">
+		                                       <div class="boxes">
+													<div class="form-group">
+														<h:inputText name="nif_cin" type="text" class="form-control" a:placeholder="NIF/CIN"></h:inputText>
+													</div>
+												
+													<div class="form-group">
+														<h:inputText required="true" requiredMessage="Saisir votre date de naissance" id="naissance" value="#{compteMB.datenais_me}"  class="form-control" a:placeholder="Date Naissance"/>
+														<h:message for="naissance" style="color:red;"/>
+													</div>
+												</div>
+													<div class="form-group">
+														<a href="#account" class="btn btn-finish btn-fill btn-warning btn-wd" data-toggle="tab">Suivant</a>
+													</div>
+		                                    </div>
+		                                </div>
+		                            </div>
+									
+		                            <div class="tab-pane" id="address">
+		                                <div class="row">
+		                                    <div class="col-sm-12">
+		                                        <h5 class="info-text"> Ou habitez vous? </h5>
+		                                    </div>
+		                                    <div class="col-sm-5 col-sm-offset-1">
+		                                    	<div class="form-group">
+		                                            <h:outputLabel>Numero</h:outputLabel>
+		                                            <h:inputText required="true" requiredMessage="Saisir le numero" id="numero" value="#{compteMB.numero}" class="form-control" a:placeholder="Numero"/>
+		                                       		<h:message for="numero" style="color:red;"/>  
+		                                        </div>
+		                                    </div>
+		                                    <div class="col-sm-5">
+		                                        <div class="form-group">
+		                                            <h:outputLabel>Rue</h:outputLabel>
+		                                            <h:inputText required="true" requiredMessage="Saisir la rue" id="rue" value="#{compteMB.rue}" class="form-control" a:placeholder="Rue"/>
+		                                      		<h:message for="rue" style="color:red;"/>
+		                                        </div>
+		                                    </div>
+		                                    <div class="col-sm-5 col-sm-offset-1">
+		                                        <div class="form-group">
+		                                            <h:outputLabel>Ville</h:outputLabel><br></br>
+													<h:inputText required="true" requiredMessage="Saisir la ville" id="ville" value="#{compteMB.ville}" class="form-control" a:placeholder="Ville"/>
+		                                       		<h:message for="ville" style="color:red;"/> 
+		                                        </div>
+		                                    </div>
+											<div class="col-sm-5">
+		                                        <div class="form-group">
+		                                            <h:selectOneMenu id="region" value="#{compteMB.departement}" class="form-control"  >
+														<f:selectItem id="Ouest" itemLabel="Ouest" itemValue="Ouest" />
+														<f:selectItem id="Est" itemLabel="Est" itemValue="Est" />
+														<f:selectItem id="Nord" itemLabel="Nord" itemValue="Nord" />
+														<f:selectItem id="Nord-Est" itemLabel="Nord-Est" itemValue="Nord-Est" />
+														<f:selectItem id="Nord-Ouest" itemLabel="Nord-Ouest" itemValue="Nord-Ouest" />
+														<f:selectItem id="Sud" itemLabel="Sud" itemValue="Sud" />
+														<f:selectItem id="Sud-Est" itemLabel="Sud-Est" itemValue="Sud-Est" />
+														<f:selectItem id="Sud-Ouest" itemLabel="Sud-Ouest" itemValue="Sud-Ouest" />
+														<f:selectItem id="Nippes" itemLabel="Nippes" itemValue="Nippes" />
+														<f:selectItem id="Grande-Anse" itemLabel="Grande-Anse" itemValue="Grande-Anse" />
+													</h:selectOneMenu>
+		                                        </div>
+		                                    </div>
+		                                </div>
+		                            </div>
+		                        </div>
+		                        <div class="wizard-footer">
+		                            <div class="pull-right">
+		                                 <h:commandButton action="#{compteMB.enregistrerCompte()}" value="Terminer"  class="btn btn-finish btn-fill btn-warning btn-wd" name="finish" style="display: none;"/>
+		                            </div>	
+
+		                            <div class="pull-left">
+		                            	 <button type="submit" class="btn btn-previous btn-default btn-wd disabled" name="previous" value="Avant" >Avant</button>
+		                            </div>
+		                            <div class="clearfix"></div>
+		                        </div>
+		                    </h:form>
+		                </div>
+		            </div> <!-- wizard container -->
+		        </div>
+		
+</h:body>
+
+</html>

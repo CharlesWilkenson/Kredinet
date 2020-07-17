@@ -1,0 +1,265 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" 
+          "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml"
+      xmlns:ui="http://xmlns.jcp.org/jsf/facelets"
+      xmlns:f="http://xmlns.jcp.org/jsf/core"
+      xmlns:h = "http://java.sun.com/jsf/html"
+      xmlns:a="http://xmlns.jcp.org/jsf/passthrough">
+
+	<h:head>
+		<h:outputStylesheet library="design/css" name="bootstrap.min.css"/>
+		<h:outputStylesheet library="design/assets/css" name="light-bootstrap-dashboard.css"/>
+		<h:outputStylesheet library="design/css" name="font-awesome.min.css" />
+		<h:outputStylesheet library="design" name="default.css" />
+		<h:outputStylesheet library="design/assets/css" name="pe-icon-7-stroke.css" />
+		
+		<link rel="icon" type="image/png" href="#{resource['design/img/favicon.png']}" />
+		<title>KrediNet</title>
+		<!-- JavaScript -->
+		 <!-- javaScript -->
+  		<h:outputScript library="design" name="js/jquery.min.js" />
+  		<h:outputScript library="design" name="js/bootstrap.min.js" />
+  		<h:outputScript library="design/assets" name="js/light-bootstrap-dashboard.js" />
+	</h:head>
+
+<body>
+	<div class="wrapper">
+    <div class="sidebar" data-color="purple" data-image="#{resource['design/assets/img/sidebar-7.jpg']}">
+
+    	<div class="sidebar-wrapper">
+            <div class="logo">
+                <a class="navbar-brand" href="#"><img src="#{resource['design/img/favicon.png']}" width="60" height="30"></img></a>
+				<br></br>
+            </div>
+
+            <ul class="nav">
+                <li>
+                    <a href="acceuil.xhtml">
+                        <i class="pe-7s-graph"></i>
+                        <p>Acceuil</p>
+                    </a>
+                </li>
+                <li>
+                    <a href="profile.xhtml">
+                        <i class="pe-7s-user"></i>
+                        <p>Profile</p>
+                    </a>
+                </li>
+                <li>
+                    <a href="transaction.xhtml">
+                        <i class="pe-7s-cash"></i>
+                        <p>Transaction</p>
+                    </a>
+                </li>
+                <li>
+                    <a href="activite.xhtml">
+                        <i class="pe-7s-note2"></i>
+                        <p>Activite</p>
+                    </a>
+                </li>
+                <li class="active">
+                    <a href="rapport.xhtml">
+                        <i class="pe-7s-news-paper"></i>
+                        <p>Rapport</p>
+                    </a>
+                </li>
+            </ul>
+    	</div>
+    </div>
+
+    <div class="main-panel">
+    
+    	<ui:insert>
+    		<ui:include src="/templateIn/header.xhtml"/>
+    	</ui:insert>
+		
+        <div class="content">
+            <div class="container-fluid">
+                <div class="row">
+                    <div class="col-md-12">
+                        <div class="card">
+                            <div class="content"><h3>Rapports</h3><hr></hr>
+                                <h:form> 
+									<div class="row">
+										<div class="col-md-11 col-sm-12">
+											<div class="tabs-left">
+												<ul class="nav nav-tabs">
+													<li class="active"><a href="#a" data-toggle="tab"><span class="pe-7s-notebook"></span> Releves</a></li>
+													<li><a href="#b" data-toggle="tab"><span class="pe-7s-albums"></span> Transactions</a></li>
+													<li><a href="#c" data-toggle="tab"><span class="pe-7s-bookmarks"> Rapport Financiers</span></a></li>
+													<!--<li><a href="#d" data-toggle="tab"><span class="pe-7s-target"> Litiges</span></a></li>-->
+												</ul>
+												<div class="tab-content">
+													<div class="tab-pane active" id="a">
+														<div class="col-md-12">
+															<div class="form-group">
+																<h5 style="border-bottom:1px solid #DCDCDC;font-weight:bold; margin-bottom:5px;">Releves</h5>
+															</div>
+														</div>
+															
+														<div class="row">
+															<div class="col-md-4">
+																<div class="center">
+																	<div class="box">
+																		<h5 style="text-align:center;"><a href="#">Mensuel</a></h5>
+																		<p style="color:#6c7378;padding:10px;text-align:justify; font-size:11px;">
+																		Ce relevé regroupe les soldes,frais,paiements,oppositions et remboursements.
+																		Il répertorie également toutes les transactions du solde de début au solde de 
+																		fin pour chaque.</p>
+																	</div>
+																</div>
+															</div>
+															<div class="col-md-4">
+																<div class="center">
+																	<div class="box">
+																		<h5 style="text-align:center;"><a href="#">Annuel</a></h5>
+																		<p style="color:#6c7378;padding:10px;font-size:11px;text-align:justify;">
+																		Créez un rapport personnalisé regroupant les soldes,frais,paiements, 
+																		oppositions et remboursements,et répertoriant toutes les transactions 
+																		d'une période donnée au cours des 3 dernières années.</p>
+																	</div>
+																</div>
+															</div>
+															<div class="col-md-4">
+																<div class="center">
+																	<div class="box">
+																		<h5 style="text-align:center;"><a href="#">Aide et documentation</a></h5>
+																		<p style="color:#6c7378;padding:10px;font-size:11px; text-align:justify;">
+																		Créez un rapport personnalisé regroupant les soldes,frais,paiements, 
+																		oppositions et remboursements,et répertoriant toutes les transactions 
+																		d'une période donnée au cours des 3 dernières années.</p>
+																	</div>
+																</div>
+															</div>
+														</div>
+													</div>
+													<div class="tab-pane" id="b">
+														<div class="col-md-12">
+															<div class="form-group">
+																<h5 style="border-bottom:1px solid #DCDCDC;font-weight:bold; margin-bottom:5px;">Transactions</h5>
+															</div>
+														</div>
+														
+														<div class="row">
+															<div class="col-md-4">
+																<div class="center">
+																	<div class="box">
+																		<h5 style="text-align:center;"><a href="#">Reglement</a></h5>
+																		<p style="color:#6c7378;padding:10px;text-align:justify;font-size:11px;">
+																		Ce relevé regroupe les soldes,frais,paiements,oppositions et remboursements.
+																		Il répertorie également toutes les transactions du solde de début au solde de 
+																		fin pour chaque.</p>
+																	</div>
+																</div>
+															</div>
+															<div class="col-md-4">
+																<div class="center">
+																	<div class="box">
+																		<h5 style="text-align:center;"><a href="#">Investiment</a></h5>
+																		<p style="color:#6c7378;padding:10px;text-align:justify;font-size:11px;">
+																		Créez un rapport personnalisé regroupant les soldes,frais,paiements, 
+																		oppositions et remboursements,et répertoriant toutes les transactions 
+																		d'une période donnée au cours des 3 dernières années.</p>
+																	</div>
+																</div>
+															</div>
+															<div class="col-md-4">
+																<div class="center">
+																	<div class="box">
+																		<h5 style="text-align:center;"><a href="#">Remboursement</a></h5>
+																		<p style="color:#6c7378;padding:10px;font-size:11px;text-align:justify;">
+																		Créez un rapport personnalisé regroupant les soldes,frais,paiements, 
+																		oppositions et remboursements,et répertoriant toutes les transactions 
+																		d'une période donnée au cours des 3 dernières années.</p>
+																	</div>
+																</div>
+															</div>
+															<div class="col-md-4">
+																<div class="center">
+																	<div class="box">
+																		<h5 style="text-align:center;"><a href="#">Pret</a></h5>
+																		<p style="color:#6c7378;padding:10px;text-align:justify;font-size:11px;">
+																		Créez un rapport personnalisé regroupant les soldes, frais,paiements, 
+																		oppositions et remboursements,et répertoriant toutes les transactions 
+																		d'une période donnée au cours des 3 dernières années.</p>
+																	</div>
+																</div>
+															</div>
+															<div class="col-md-4">
+																<div class="center">
+																	<div class="box">
+																		<h5 style="text-align:center;"><a href="#">Retrait</a></h5>
+																		<p style="color:#6c7378;padding:10px;text-align:justify;font-size:11px;">
+																		Créez un rapport personnalisé regroupant les soldes,frais,paiements, 
+																		oppositions et remboursements,et répertoriant toutes les transactions 
+																		d'une période donnée au cours des 3 dernières années.</p>
+																	</div>
+																</div>
+															</div>
+														</div>
+													</div>
+													<div class="tab-pane" id="c">
+														<div class="col-md-12">
+															<div class="form-group">
+																<h5 style="border-bottom:1px solid #DCDCDC;font-weight:bold; margin-bottom:5px;">Rapport Financiers</h5>
+															</div>
+														</div>
+														
+														<div class="row">
+															<div class="col-md-4">
+																<div class="center">
+																	<div class="box">
+																		<h5 style="text-align:center;"><a href="#">Mensuel</a></h5>
+																		<p style="color:#6c7378;padding:10px;text-align:justify; font-size:11px;">
+																		Ce relevé regroupe les soldes,frais,paiements,oppositions et remboursements.
+																		Il répertorie également toutes les transactions du solde de début au solde de 
+																		fin pour chaque.</p>
+																	</div>
+																</div>
+															</div>
+															<div class="col-md-4">
+																<div class="center">
+																	<div class="box">
+																		<h5 style="text-align:center;"><a href="#">Annuel</a></h5>
+																		<p style="color:#6c7378;padding:10px;text-align:justify;font-size:11px;">
+																		Créez un rapport personnalisé regroupant les soldes,frais,paiements, 
+																		oppositions et remboursements,et répertoriant toutes les transactions 
+																		d'une période donnée au cours des 3 dernières années.</p>
+																	</div>
+																</div>
+															</div>
+															<div class="col-md-4">
+																<div class="center">
+																	<div class="box">
+																		<h5 style="text-align:center;"><a href="#">Aide et documentation</a></h5>
+																		<p style="color:#6c7378;padding:10px;text-align:justify;font-size:11px;">
+																		Créez un rapport personnalisé regroupant les soldes,frais,paiements, 
+																		oppositions et remboursements,et répertoriant toutes les transactions 
+																		d'une période donnée au cours des 3 dernières années.</p>
+																	</div>
+																</div>
+															</div>
+														</div>
+													</div>
+												</div><!-- /tab-content -->
+											</div><!-- /col -->
+										</div><!-- /row -->
+										</div>
+									</h:form>
+								</div><!--content-->
+							</div><!--card-->
+						</div><!--col-md-12-->
+					</div><!--row-->
+				</div><!-- container-fluid-->
+			</div><!--content-->
+			
+			<ui:insert>
+				<ui:include src="/templateIn/footer.xhtml"/>
+			</ui:insert>
+			
+		</div>
+	</div>
+	
+</body>
+
+</html>

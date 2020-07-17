@@ -1,0 +1,144 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" 
+          "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml"
+       xmlns:ui="http://xmlns.jcp.org/jsf/facelets"
+       xmlns:f="http://xmlns.jcp.org/jsf/core"
+       xmlns:h = "http://java.sun.com/jsf/html"
+       xmlns:a="http://xmlns.jcp.org/jsf/passthrough">
+
+	<h:head>
+		<h:outputStylesheet library="design/css" name="bootstrap.min.css"/>
+		<h:outputStylesheet library="design/assets/css" name="light-bootstrap-dashboard.css"/>
+		<h:outputStylesheet library="design/css" name="font-awesome.min.css" />
+		
+		<h:outputStylesheet library="design/assets/css" name="pe-icon-7-stroke.css" />
+		
+		<link rel="icon" type="image/png" href="#{resource['design/img/favicon.png']}" />
+		<title>KrediNet</title>
+		<!-- JavaScript -->
+		 <!-- javaScript -->
+  		<h:outputScript library="design" name="js/jquery.min.js" />
+  		<h:outputScript library="design" name="js/bootstrap.min.js" />
+  		<h:outputScript library="design/assets" name="js/light-bootstrap-dashboard.js" />
+	</h:head>
+
+<h:body>
+	<div class="wrapper">
+		<div class="sidebar" data-color="purple" data-image="#{resource['design/assets/img/sidebar-7.jpg']}">
+    	<div class="sidebar-wrapper">
+            <div class="logo">
+                <a class="navbar-brand" href="#"><img src="#{resource['design/img/favicon.png']}" width="60" height="30"></img></a>
+				<br></br>
+            </div>
+
+            <ul class="nav">
+                <li >
+                    <a href="acceuil.html">
+                        <i class="pe-7s-graph"></i>
+                        <p>Acceuil</p>
+                    </a>
+                </li>
+                <li>
+                    <a href="profileUser.html">
+                        <i class="pe-7s-user"></i>
+                        <p>Profile</p>
+                    </a>
+                </li>
+                <li>
+                    <a href="activite.html">
+                        <i class="pe-7s-note2"></i>
+                        <p>Activite</p>
+                    </a>
+                </li>
+                <li>
+                    <a href="rapport.html">
+                        <i class="pe-7s-news-paper"></i>
+                        <p>Rapport</p>
+                    </a>
+                </li>
+                <li>
+                    <a href="monargent.html">
+                        <i class="pe-7s-cash"></i>
+                        <p>Transaction</p>
+                    </a>
+                </li>
+                <li class="active">
+                    <a href="notification.html">
+                        <i class="pe-7s-bell"></i>
+                        <p>Notifications</p>
+                    </a>
+                </li>
+            </ul>
+    	</div>
+    </div>
+
+    <div class="main-panel">
+    <ui:insert name="footer">
+    	<ui:include src="/templateIn/header.xhtml"/>
+    </ui:insert>
+
+        <div class="content">
+            <div class="container-fluid">
+				<div class="row">
+				
+					<div class="col-md-12">
+                        <div class="card">
+							<div class="content">
+								<div class="row">
+									<div class="col-md-12">
+										<div class="form-group">
+											<div style="border-bottom:1px solid #DCDCDC; font-weight:bold;"> Notification</div>
+										</div>
+									</div>
+								</div>
+								<div class="row">
+									<div class="col-md-12">
+										<div class="form-group">
+											<ul class="nav nav-tabs">
+												<li class="active"><a data-toggle="tab" href="#home">Depot</a></li>
+												<li><a data-toggle="tab" href="#menu1">Placement</a></li>
+												<li><a data-toggle="tab" href="#menu2">Remboursement</a></li>
+												<li><a data-toggle="tab" href="#menu3">Pret</a></li>
+												<li><a data-toggle="tab" href="#menu4">Retrait</a></li>
+											</ul>
+											<div class="tab-content">
+												<div id="home" class="tab-pane fade in active">
+													<h2>Depotr</h2>
+													<p>Man, we've been on the road for some time now. Looking forward to lorem ipsum.</p>
+												</div>
+												<div id="menu1" class="tab-pane fade">
+													<h2>Placement</h2>
+													<p>Always a pleasure people! Hope you enjoyed it as much as I did. Could I BE.. any more pleased?</p>
+												</div>
+												<div id="menu2" class="tab-pane fade">
+													<h2>Remboursement</h2>
+													<p>I mean, sometimes I enjoy the show, but other times I enjoy other things.</p>
+												</div>
+												<div id="menu3" class="tab-pane fade">
+													<h2>Pret</h2>
+													<p>I mean, sometimes I enjoy the show, but other times I enjoy other things.</p>
+												</div>
+												<div id="menu4" class="tab-pane fade">
+													<h2>Retrait</h2>
+													<p>I mean, sometimes I enjoy the show, but other times I enjoy other things.</p>
+												</div>
+											</div>
+										</div>
+									</div>
+								</div>
+							</div>
+                        </div>
+                    </div>
+				</div>
+            </div><!-- container-fluid-->
+        </div><!--content-->
+		
+		<ui:insert name="footer">
+    		<ui:include src="/templateIn/footer.xhtml"/>
+    	</ui:insert>
+		
+    </div>
+	</div>
+</h:body>
+
+</html>

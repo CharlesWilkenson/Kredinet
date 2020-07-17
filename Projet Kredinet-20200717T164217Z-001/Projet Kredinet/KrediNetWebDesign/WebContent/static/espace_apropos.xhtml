@@ -1,0 +1,226 @@
+<!DOCTYPE html>
+<html xmlns="http://www.w3.org/1999/xhtml"
+      xmlns:ui="http://xmlns.jcp.org/jsf/facelets"
+      xmlns:f="http://xmlns.jcp.org/jsf/core"
+      xmlns:h = "http://java.sun.com/jsf/html">
+<head>
+  <meta charset="UTF-8" />
+  <title>Bootstrap Image Carousel Slider with Animate.css</title>
+  
+	<h:outputStylesheet library="design/css" name="normalize.min.css"/>
+  	<h:outputStylesheet library="design/css" name="animate.min.css"/>	
+  	<h:outputStylesheet library="design/css" name="paper-bootstrap-wizard-conf.css"/>
+  	<h:outputStylesheet library="design/css" name="style_a_propo.css"/>
+  	<h:outputStylesheet library="design/css" name="font-awesome.min.css" />
+  	<h:outputStylesheet library="design/css" name="bootstrap.min.css"/>
+  	<!-- javaScript -->
+  	<h:outputScript library="design" name="js_/jquery.min.js" />
+  	<h:outputScript library="design" name="js_/bootstrap.min.js" />
+  	
+  	<link rel="icon" type="image/png" href="#{resource['design/img/favicon.png']}" />
+  
+</head>
+
+<style>
+    /* Remove the navbar's default margin-bottom and rounded borders */ 
+    .navbar {
+      margin-bottom: 0;
+      border-radius: 0;
+    }
+    
+    /* Add a gray background color and some padding to the footer */
+    footer {
+      background-color: #ffff;
+      padding: 15px;
+    }
+    
+  .carousel-inner img {
+      width: 100%; /* Set width to 100% */
+      margin: auto;
+      min-height:200px;
+  }
+
+  /* Hide the carousel text when the screen is less than 600 pixels wide */
+  @media (max-width: 600px) {
+    .carousel-caption {
+      display: none; 
+    }
+  }
+  </style>
+
+<body>
+
+<!-- Menu -->
+
+<nav class="navbar navbar-default navbar-static-top">
+            <div class="container">
+	             <div class="navbar-header">
+	                  <button type="button" class="navbar-toggle collapsed"
+                             data-toggle="collapse" data-target="#navbar" aria-expanded="false" aria-controls="navbar">
+	                     <span class="sr-only">Toggle navigation</span>
+	                     <span class="icon-bar"></span>
+	                     <span class="icon-bar"></span>
+	                     <span class="icon-bar"></span>
+	                   </button>
+	              <a class="navbar-brand" href="#">KrediNet</a>
+	            </div>  
+	       <!-- ***** Menu display at the top right corner of the webpage **** -->	
+ 		    <div id="navbar" class="navbar-collapse collapse">          
+				<ul class="nav navbar-nav navbar-right">  	 
+					<li><a href="#">S'inscrire</a></li>
+					<li><a href="#">Aide</a></li>
+					<li><a href="#">A propos</a></li> 
+				</ul>
+			</div>				
+      </div>
+    </nav>
+
+  <div id="first-slider" class="">
+    <div id="carousel-example-generic" class="carousel slide carousel-fade">
+        <!-- Indicators -->
+        <ol class="carousel-indicators">
+            <li data-target="#carousel-example-generic" data-slide-to="0" class=""></li>
+            <li data-target="#carousel-example-generic" data-slide-to="1" class="active"></li>
+            <li data-target="#carousel-example-generic" data-slide-to="2" class=""></li>
+            <li data-target="#carousel-example-generic" data-slide-to="3" class=""></li>
+        </ol>
+        <!-- Wrapper for slides -->
+        <div class="carousel-inner" role="listbox">
+            <!-- Item 1 -->
+            <div class="item slide1">
+                <div class="row">
+                    <div class="container">
+                        <div class="col-md-3 text-right">
+                            <img style="max-width: 200px;" data-animation="animated zoomInLeft" src="file:///C:/Users/FR-PHILIPPE/Desktop/bootstrap-image-carousel-slider-with-animate-css/img/window-domain.png"
+                            class=""></img>
+							
+                        </div>
+                        <div class="col-md-9 text-left">
+                             <h3 data-animation="animated bounceInDown" class="">Garantir l’accès aux crédits et aux capitaux à tous les haitiens par la mise en œuvre des outils et services de l’écosystème fintech. </h3>
+
+                             <h4 data-animation="animated bounceInUp" class="">Faire que chaque emprunteur soit d’abord un investisseur quel que soit son niveau économique à partir du moment où il peut avoir un solde supérieur à 5,000.00 gourdes.</h4> 
+						
+						
+						</div>
+                    </div>
+                </div>
+            </div>
+            <!-- Item 2 -->
+            <div class="item slide2 active">
+                <div class="row">
+                    <div class="container">
+                        <div class="col-md-7 text-left">
+
+                             <h4 data-animation="animated bounceInUp" class="">Permettre que par l’accès aux crédits, les haitien(nes) se soutiennent par l’étape du financement de leurs projets afin de faciliter la croissance économique dans le pays. </h4>
+
+                        </div>
+                        <div class="col-md-5 text-right">
+                            <img style="max-width: 200px;" data-animation="animated zoomInLeft" src="file:///C:/Users/FR-PHILIPPE/Desktop/bootstrap-image-carousel-slider-with-animate-css/img/rack-server-unlock.png"
+                            class=""></img>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <!-- Item 3 -->
+            <div class="item slide3">
+                <div class="row">
+                    <div class="container">
+                        <div class="col-md-7 text-left">
+                             <h3 data-animation="animated bounceInDown" class="">Rendre l’activité économique du secteur informel plus équilibrée.</h3>
+
+                             <h4 data-animation="animated bounceInUp" class="">Permettre à la population haïtienne d’avoir accès à des crédits en dehors des traditionnelles règlementations bancaires via la technologie.</h4>
+
+                        </div>
+                        <div class="col-md-5 text-right">
+                            <img style="max-width: 200px;" data-animation="animated zoomInLeft" src="file:///C:/Users/FR-PHILIPPE/Desktop/bootstrap-image-carousel-slider-with-animate-css/img/globe-network.png"
+                            class=""></img>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <!-- Item 4 -->
+            <div class="item slide4">
+                <div class="row">
+                    <div class="container">
+                        <div class="col-md-7 text-left">
+                             <h3 data-animation="animated bounceInDown" class="">Offrir à tous ceux qui ont des projets d’investissement (commerciaux, artistiques, intellectuels et autres) l’opportunité de les financer.</h3>
+
+                             <h4 data-animation="animated bounceInUp" class="">Permettre à  M. Tout le monde de devenir investisseur et de générer assez de profit à partir d’un simple placement chez KrediNet.</h4>
+
+                        </div>
+                        <div class="col-md-5 text-right">
+                            <img style="max-width: 200px;" data-animation="animated zoomInLeft" src="file:///C:/Users/FR-PHILIPPE/Desktop/bootstrap-image-carousel-slider-with-animate-css/img/internet-speed.png"
+                            class=""></img>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <!-- End Item 4 -->
+        </div>
+        <!-- End Wrapper for slides--> <a class="left carousel-control" href="#carousel-example-generic" role="button"
+        data-slide="prev">
+            <i class="fa fa-angle-left"></i><span class="sr-only">Previous</span>
+        </a>
+ <a class="right carousel-control" href="#carousel-example-generic"
+        role="button" data-slide="next">
+            <i class="fa fa-angle-right"></i><span class="sr-only">Next</span>
+        </a>
+
+    </div>
+</div>
+
+<div class="container text-center">    
+  <h3> Qui sommes Nous ? </h3><br/>
+  <p>Nous sommes KrediNet, un startup fintech de la firme SINAT Technologie,
+  représentée par sa plate-forme en ligne basée sur le Crowdfunding</p>
+  <p>(le financement de foule) 
+  dont sa principale mission est d’offrir un environnement d’investissement </p>
+  <p>et de prêt « Peer-to-Peer, adapté avec les réalités sociales et technologiques d’Haiti.</p>
+  <div class="row">
+    <div class="col-sm-4">
+      <img src="https://placehold.it/150x80?text=IMAGE" class="img-responsive" style="width:100%" alt="Image"></img>
+      <p>C’est quoi le prêt « Peer-to-Peer » ?</p><br/>
+	  
+      <div class="well">
+       <p>Le prêt « Peer-to-Peer » 
+	   (prêt de particulier à particulier)
+	   est un modèle dans lequel les Crowdfunders 
+	   (membres d’une plate-forme de Crowdfunding) 
+	   investissent et empruntent de l’argent mutuellement.</p>
+     </div>
+	 
+    </div>
+    <div class="col-sm-4"> 
+      <img src="https://placehold.it/150x80?text=IMAGE" class="img-responsive" style="width:100%" alt="Image"></img>
+      <p>Comment fonctionne KrediNet ?</p> <br/>
+		 <div class="well">
+       <p>KrediNet à pour philosophie
+	   d’inciter et de garantir d’abord les investissements des Crowdfunders 
+	   (membre-Investiseurs) sur une durée d’un an afin de favoriser l’accès aux crédits.
+	   En réalité, tous les Crowdfunders (membre-Emprunteurs) 
+	   de KrediNet sont d’abord des investisseurs. 
+	   Ces derniers gagnent des intérêts sur leurs placements grâce aux remboursements avec intérêts des emprunteurs.</p>
+     </div>
+    </div>
+	<div class="col-sm-4">
+	<img src="https://placehold.it/150x80?text=IMAGE" class="img-responsive" style="width:100%" alt="Image"></img>
+      <p>Quel est l’objectif de KrediNet ?</p> <br/>
+	  <div class="well">
+       <p>L’objectif de KrediNet, c’est d’abord d’apporter son soutien au secteur de crédit en Haiti lequel confronte d’énorme difficultés.
+	   KrediNet veut aussi révolutionner les fintech en Haiti en créant un outil accéssible au niveau national ; 
+	   profitant bien sûr des atouts des nouvelles technologies, très en vogue d’ailleurs aujourd’hui. 
+	   On peut résumer l’objectif de KrediNet ainsi :</p>
+      </div>
+	</div>
+    </div>
+  </div>
+<br></br>
+
+
+
+	<script type="text/javascript" src="../Design/js_/jquery.min.js"></script>
+	<script type="text/javascript" src="../Design/js_/bootstrap.min.js"></script>
+    <script  src="../Design/js_/index.js"></script>
+
+</body>
+</html>

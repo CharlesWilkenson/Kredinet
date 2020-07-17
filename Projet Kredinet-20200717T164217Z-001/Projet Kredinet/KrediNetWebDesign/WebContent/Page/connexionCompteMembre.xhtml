@@ -1,0 +1,93 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" 
+          "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml"
+      xmlns:ui="http://xmlns.jcp.org/jsf/facelets"
+      xmlns:f="http://xmlns.jcp.org/jsf/core"
+      xmlns:h = "http://java.sun.com/jsf/html"
+      xmlns:a="http://xmlns.jcp.org/jsf/passthrough"
+      xmlns:p="http://primefaces.org/ui">
+<h:head>
+	<h:outputStylesheet library="design/css" name="style.css"/>
+  	<h:outputStylesheet library="design" name="index.css"/>	
+  	<h:outputStylesheet library="design/css" name="paper-bootstrap-wizard-conf.css"/>
+  	<h:outputStylesheet library="design/css" name="demo.css"/>
+  	<h:outputStylesheet library="design/css" name="bootstrap.min.css"/>
+  	<!-- javaScript -->
+  	<link rel="icon" type="image/png" href="#{resource['design/img/favicon.png']}" />
+  <title><ui:insert name="title">KrediNet</ui:insert></title>
+</h:head>
+
+<style>
+  	.navbar-brand {
+    float: left;
+    height: 50px;
+    padding: 10px 7px;
+    font-size: 18px;
+    line-height: 20px;
+	}
+	.wizard-card .tab-content {
+    	min-height: 225px;
+    	padding: 50px 20px 10px;
+	}
+	.wizard-card {
+    min-height: 310px;
+    box-shadow: 0 20px 16px -15px rgba(0, 0, 0, 0.57);
+}
+  </style>
+  
+<h:body id="page">
+
+		<!-- tete de page -->
+		<div id="header">
+			<ui:insert name="header">
+				<ui:include src="/template/headerInscription.xhtml"></ui:include>
+			</ui:insert>
+		</div>
+		
+	
+		<div class="col-sm-10 col-sm-offset-1">
+		<!--      Wizard container        -->
+		<div class="wizard-container">
+		 <p:messages globalOnly="true" id="msgs" autoUpdate="true" closable="true"/>
+		    <div class="card wizard-card" data-color="orange" id="wizardProfile">
+		       
+		        <h:form name="validateInscription">
+		            <div class="wizard-header text-center">
+		            
+                       
+		                <h3 class="wizard-title">Acceder a votre compte KrediNet</h3>	
+		            </div>
+		                        
+		            <div class="tab-content">
+		                <div class="tab-pane active" id="about">
+		                
+		                    <div class="row">
+								<h5 class="info-text"> Veuillez saisir votre numero de compte.</h5>
+								<div class="col-sm-10 col-sm-offset-1" >
+									<div class="form-group">
+										<h:inputText value="#{navigationMembre.noCompte}"  id="num" required="true"  requiredMessage="Saisir votre numero de compte kredinet" class="form-control" a:placeholder="Saisir votre numero de compte"/>
+									   <h5 style="font-style:italic"><h:message for="num" style="color:red;"/></h5>
+									</div>
+									<div class="pull-right">
+										<h:commandButton action="#{navigationMembre.acceuil}"  class="btn btn-next btn-fill btn-warning btn-wd" value="Valider" />
+									</div>
+								</div>
+							</div>	
+		                </div>
+		            </div>	
+		        </h:form>
+		    </div>
+		</div> <!-- wizard container -->
+	</div>
+	<!--<div class="col-sm-3">
+		<div class="wizard-container">
+		    <div class="card wizard-card" data-color="orange" id="wizardProfile">
+		        lkkk;kj;j;j;l;
+		    </div>
+		</div> 
+	</div>-->
+	<!-- fin espace inscription-->
+		
+</h:body>
+
+</html>

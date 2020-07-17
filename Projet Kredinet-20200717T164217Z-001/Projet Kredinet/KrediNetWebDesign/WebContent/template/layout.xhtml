@@ -1,0 +1,63 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" 
+          "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml"
+      xmlns:ui="http://xmlns.jcp.org/jsf/facelets"
+      xmlns:f="http://xmlns.jcp.org/jsf/core"
+      xmlns:h = "http://java.sun.com/jsf/html">
+      
+<!--<h:head>
+    <h:outputStylesheet name="/resources/css/index.css" />
+</h:head>-->
+
+<h:head>
+  <h:outputStylesheet library="design/css" name="style.css"/>
+  <h:outputStylesheet library="design" name="index.css"/>
+  <h:outputStylesheet library="design/css" name="demo.css"/>
+  <h:outputStylesheet library="design/css" name="form-elements.css"/>
+  <h:outputStylesheet library="design/css" name="font-awesome.min.css" />
+  <h:outputStylesheet library="design/css" name="bootstrap.min.css"/>
+  <!-- javaScript -->
+  <h:outputScript library="design" name="js/jquery.min.js" />
+  <h:outputScript library="design" name="js/bootstrap.min.js" />
+  <h:outputScript library="design" name="js/modernizr.custom.86080.js" />
+   <link rel="icon" type="image/png" href="#{resource['design/img/favicon.png']}" />
+   <title>KrediNet</title>
+</h:head>
+
+ <style>
+  	.navbar-brand {
+    float: left;
+    height: 50px;
+    padding: 10px 15px;
+    font-size: 18px;
+    line-height: 10px;
+}
+  </style>
+
+<body id="myPage" data-spy="scroll" data-target=".navbar" data-offset="50">
+
+	<div id="page">
+		<!-- tete de page -->
+		<div id="header">
+			<ui:insert name="header">
+				<ui:include src="header.xhtml"></ui:include>
+			</ui:insert>
+		</div>
+		<!-- Contenu de la page -->
+		<div id="content">
+			<ui:insert name="content">
+				<ui:include src="content.xhtml"/>
+			</ui:insert>
+		</div>
+		<!-- Pied de lapage -->
+		<div id="footer">
+			<ui:insert name="footer">
+				<ui:include src="footer.xhtml"/>
+			</ui:insert>
+		</div>
+	</div>
+	
+</body>
+
+</html>

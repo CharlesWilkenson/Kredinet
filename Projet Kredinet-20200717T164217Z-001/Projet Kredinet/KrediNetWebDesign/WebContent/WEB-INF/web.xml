@@ -1,0 +1,111 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<web-app xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" 
+			xmlns="http://xmlns.jcp.org/xml/ns/javaee" 
+			xsi:schemaLocation="http://xmlns.jcp.org/xml/ns/javaee http://xmlns.jcp.org/xml/ns/javaee/web-app_3_1.xsd" 
+			id="WebApp_ID" version="3.1">
+			
+   <!-- project name -->		
+  	<display-name>KrediNetWebDesign</display-name>
+  
+  <!-- page d'acceuil -->
+	<!--<welcome-file-list>
+	    <welcome-file>faces/static/main.xhtml</welcome-file>
+	</welcome-file-list>-->
+  
+  <!-- Mapping URLS /faces/* vers la servlet JSF faces Servlet -->
+	<servlet>
+	    <servlet-name>Faces Servlet</servlet-name>
+	    <servlet-class>javax.faces.webapp.FacesServlet</servlet-class>
+	    <load-on-startup>1</load-on-startup>
+	</servlet>
+	 
+	  <servlet-mapping>
+	    <servlet-name>Faces Servlet</servlet-name>
+	    <url-pattern>/faces/*</url-pattern>
+	  </servlet-mapping>
+	 
+	  <!-- Exécution JSF en mode 'développement'. logs supplémentaires. -->
+	<context-param>
+		<param-name>javax.faces.PROJECT_STAGE</param-name>
+		<param-value>Development</param-value>
+	</context-param>
+		
+	<!-- Needed for Awesome Font/Icons -->
+	<mime-mapping>
+		 <extension>eot</extension>
+		 <mime-type>application/vnd.ms-fontobject</mime-type>
+	</mime-mapping>
+		
+	<mime-mapping>
+		 <extension>otf</extension>
+		 <mime-type>font/opentype</mime-type>
+	</mime-mapping>
+		
+	<mime-mapping>
+		 <extension>ttf</extension>
+		 <mime-type>application/x-font-ttf</mime-type>
+	</mime-mapping>
+		
+	<mime-mapping>
+		 <extension>woff</extension>
+		 <mime-type>application/x-font-woff</mime-type>
+	</mime-mapping>
+		
+	<mime-mapping>
+		 <extension>svg</extension>
+		 <mime-type>image/svg+xml</mime-type>
+	</mime-mapping>
+	
+	<!-- tag for upload file  -->
+	<context-param>
+  		<param-name>primefaces.UPLOADER</param-name>
+  		<param-value>auto|native|commons</param-value>
+	</context-param>
+	<!--  -->
+	
+	<security-constraint>
+ 	<display-name>Membre Pages</display-name>
+<web-resource-collection>
+ <web-resource-name>Protected Membre Area</web-resource-name>
+ <description></description>
+ <url-pattern>/faces/Page/*</url-pattern>
+ <http-method>GET</http-method>
+ <http-method>POST</http-method>
+ </web-resource-collection>
+ <auth-constraint>
+ <role-name>MEMBRE</role-name>
+ </auth-constraint>
+ 
+<user-data-constraint>
+ <transport-guarantee>NONE</transport-guarantee>
+ </user-data-constraint>
+ </security-constraint>
+ 
+
+  
+	<login-config>
+       <auth-method>FORM</auth-method>
+       <realm-name>jdbcDomain</realm-name>
+       <form-login-config>
+        <form-login-page>/faces/static/main.xhtml</form-login-page>
+       <form-error-page>/faces/static/index.jsp</form-error-page>
+    </form-login-config>
+   </login-config>
+
+  
+  <security-role>
+ 	<role-name>MEMBRE</role-name>
+ </security-role>
+	
+	
+<!--  
+<filter>
+ 	<filter-name>PrimeFaces FileUpload Filter</filter-name>
+ 	<filter-class>org.primefaces.webapp.filter.FileUploadFilter</filter-class>
+</filter>
+<filter-mapping>
+	<filter-name>PrimeFaces FileUpload Filter</filter-name>
+ 	<servlet-name>Faces Servlet</servlet-name>
+</filter-mapping>-->
+	  
+</web-app>

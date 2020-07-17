@@ -1,0 +1,208 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" 
+          "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml"
+      xmlns:ui="http://xmlns.jcp.org/jsf/facelets"
+      xmlns:h="http://xmlns.jcp.org/jsf/html"
+      xmlns:a="http://xmlns.jcp.org/jsf/passthrough"
+      xmlns:p="http://primefaces.org/ui">
+
+	<body>
+		<ui:composition>
+			<div class="img_ann">
+				<ul class="cb-slideshow">
+						<li><span>Image 01</span></li>
+						<li><span>Image 02</span></li>
+						<li><span>Image 03</span></li>
+						<li><span>Image 04</span></li>
+						<li><span>Image 05</span></li>
+						<li><span>Image 06</span></li>
+				</ul>
+			</div>
+
+			<!-- Container (The Band Section) -->
+			<div id="band" class="container text-center">
+			 
+			    <div class="container">
+			    <p:messages globalOnly="true" id="msgs" autoUpdate="true" closable="true"/>
+					<div class="p-connexion">
+						<div class="col-sm-6 col-sm-offset-3 form-box">
+							<div class="form-top">
+								<div class="form-top-center">
+									<h3>Connecter &agrave; notre site</h3>
+									<p>Saisir votre nom d'utilisateur et votre mot de passe pour se connecter:</p>
+								</div>
+								<div class="form-top-right">
+									<i class="fa fa-lock"></i>
+								</div>
+							</div>
+							
+                            <div class="form-bottom">
+								<h:form role="form" class="login-form">
+									<div class="form-group">
+										<h:outputLabel class="sr-only" value="Nom Utilisateur" for="form-username" />
+										<h:inputText  value="#{connect.email_me}"  a:placeholder="Email..." class="form-username form-control" id="email" required="true" requiredMessage="Saisir votre adresse email" />
+										<h5 style="font-style:italic"><h:message for="email" errorStyle="color:red;"/></h5>
+									</div>
+									<div class="form-group">
+										<h:outputLabel class="sr-only" value="Mot de passe" for="form-password" />
+										<h:inputSecret value="#{connect.motdePasse}"   a:placeholder="Password..." class="form-password form-control" id="form-password"  required="true" requiredMessage="Saisir votre mot de passe"/>
+										<h5 style="font-style:italic"><h:message for="form-password" errorStyle="color:red;"/></h5>									
+									</div>
+									<h5 style="color:red; font-style:italic;"><h:messages globalOnly="true" errorStyle="color:red;"  /></h5>
+									<h:commandButton icon="" value="Connexion" action="#{connect.submit()}" class="btn btn-warning btn-fill pull-right" />
+									<div class="clearfix"></div>
+								</h:form>
+							</div>
+							<div class="form-bottom-fin">
+								<span class="pull-left">
+									<a style="color: #696969; margin-left:10px; font-size:15px;" href="#">Mot de passe oublier !</a>
+								</span> 
+								
+							</div>
+						</div>
+					</div>
+				</div>
+			</div>
+			<br></br>
+			<!-- Container (TOUR Section) -->
+			<div id="tour" class="bg-1">
+				<div class="container">
+					<h3 class="text-center">Nos Diff&eacute;rents plan d'investissement</h3>
+					<p class="text-center">Votre r&eacute;ussite.<br></br> C'est notre souci!</p>
+					<div class="section">
+						<div class="container">
+							<div class="row">
+								<div class="col-md-4 col-sm-4">
+								  <div class="wrimagecard wrimagecard-topimage">
+									  <a href="">
+										  <div class="wrimagecard-topimage_header" style="background-color:  rgba(51, 105, 232, 0.1)">
+											 <center><i class="fa fa-list-ul" style="color:#3369e8"> </i></center>
+										  </div></a>
+										  <div class="wrimagecard-topimage_title">
+											<h4>Rejoins liste d'attente
+											<div class="pull-right badge" id="WrGridSystem">20 000</div></h4>
+											Lorsque nous acc&eacute;ptons de nouveaux investisseurs et emprunteurs, 
+											nous vous enverrons un courrier &eacute;lectronique avec un lien personnel pour ouvrir votre compte.
+										  </div>
+										
+								  </div>
+								</div>
+								<div class="col-md-4 col-sm-4">
+								  <div class="wrimagecard wrimagecard-topimage">
+									  <a href="">
+									  <div class="wrimagecard-topimage_header" style="background-color:  rgba(51, 105, 232, 0.1)">
+										 <center><i class="fa fa-table" style="color:#3369e8"> </i></center>
+									  </div></a>
+									  <div class="wrimagecard-topimage_title">
+										<h4>Nous investissons votre argent
+										<div class="pull-right badge" id="WrGridSystem"></div></h4>
+										Votre argent va dans une file d'attente avec d'autres pr&ecirc;teurs pour correspondre aux emprunteurs. 
+										Il sera g&eacute;n&eacute;ralement pr&ecirc;t&eacute; dans une semaine.
+									  </div>
+									
+								  </div>
+								</div>
+								<div class="col-md-4 col-sm-4">
+								  <div class="wrimagecard wrimagecard-topimage">
+									  <a href="">
+									  <div class="wrimagecard-topimage_header" style="background-color:  rgba(51, 105, 232, 0.1)">
+										 <center><i class="fa fa-money" style="color:#3369e8"> </i></center>
+									  </div></a>
+									  <div class="wrimagecard-topimage_title">
+										<h4>Acc&eacute;dez &agrave; votre argent &agrave; tout moment 
+										<div class="pull-right badge" id="WrGridSystem"></div></h4>
+										Vous pouvez retirer vos remboursements mensuels car ils sont rembours&eacute;s par les emprunteurs ou acc&eacute;der &agrave; 
+										un montant forfaitaire en vendant vos pr&acirc;ts en cours &agrave; d'autres investisseurs.
+									  </div>
+									
+								  </div>
+								</div>
+							</div>
+						</div>
+					</div>
+				</div>
+			</div>
+			<!-- Container (Contact Section) -->
+			<div id="contact" class="container">
+			  <h3 class="text-center">Contact</h3>
+			  <p class="text-center"><em>Nous aimons nos fans!</em></p>
+		
+			  <div class="row">
+				<div class="col-md-4">
+				  <p>Envoyer nous une note .</p>
+				  <p><span class="fa fa-map-marker"></span> Port-au-Prince, Ha&iuml;ti</p>
+				  <p><span class="fa fa-phone"></span> Phone: +509 48717626</p>
+				  <p><span class="glyphicon glyphicon-envelope"></span> Email: sinatgr2005@gmail.com</p>
+				</div>
+				<h:form>
+					<div class="col-md-8">
+					  <div class="row">
+						<div class="col-sm-6 form-group">
+						  <h:inputText class="form-control" a:placeholder="Name" ></h:inputText>
+						</div>
+						<div class="col-sm-6 form-group">
+						  <h:inputText class="form-control" a:placeholder="Email"></h:inputText>
+						</div>
+					  </div>
+					  <textarea class="form-control" id="comments" name="comments" placeholder="Comment" rows="5"></textarea>
+					  <br></br>
+					  <div class="row">
+						<div class="col-md-12 form-group">
+						  <button class="btn pull-right" type="submit" >Envoyer</button>
+						</div>
+					  </div>
+					</div>
+				</h:form>
+			  </div>
+			  <br></br>
+			</div>
+			<!-- finalite -->
+			<div id="tour" class="bg-1">
+				<div class="section">
+					<div class="container">
+						<div class="row">
+							<div class="section">
+      							<div class="container">
+        							<div class="row">
+          								<div class="col-md-12">
+            								<hr></hr>
+          								</div>
+        							</div>
+      							</div>
+    						</div>
+    						<div class="section">
+      							<div class="container">
+        							<div class="row">
+							          	<div class="col-md-4">
+								            <strong>Avantages</strong>
+											<ul>
+												<li>coûts de crédits plus avantageux grâce à des taux de prêts moins élevés et des frais de dossiers et de gestion réduits</li>
+											</ul>
+							          	</div>
+          								<div class="col-md-4">
+								            <strong>Option de placement excellente</strong>
+								            <ul>
+												<li>Les taux de rendement en placement étant historiquement bas, il est difficile d'obtenir un taux avoisinant les 4 ou 5 % comme obtenu dans le cadre d'un prêt privé</li>
+											</ul>	
+          								</div>
+          								<div class="col-md-4">
+            								<strong>Les prêts sont simples</strong>
+											<ul>
+											<li>Taux d'intérêt bas</li>
+											<li>Durée fixe-3 ou 5 ans</li>
+											<li>Paiement mensuel unique</li>
+											<li>Pas de frais cachés ni de pénalités de prépaiement</li>
+											</ul>
+          								</div>
+        							</div>
+      							</div>
+    						</div>		
+						</div>
+					</div>
+				</div>
+			</div>
+		</ui:composition>
+	</body>
+
+</html>

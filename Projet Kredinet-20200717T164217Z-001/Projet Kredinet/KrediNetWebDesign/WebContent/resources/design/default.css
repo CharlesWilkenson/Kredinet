@@ -1,0 +1,115 @@
+@CHARSET "ISO-8859-1";
+/*html,body {
+    height:100%;
+    width: 100%;
+}
+
+body {
+    display: table;
+}
+
+.container {
+    height: auto;
+}
+
+.footer {
+    display: table-row;
+    height: 1px;
+}*/
+.badge {
+  background-color: #777;
+}
+.tabs-left {
+  margin-top: 0rem;
+}
+.nav-tabs {
+  float: left;
+  border-right: 0;
+  border-bottom:none;
+}
+.nav-tabs li {
+  float: none;
+  margin: 0;
+}
+.nav-tabs li a {
+  margin-right: 0;
+  border: 0;
+}
+.box {
+  position: relative;
+  display: inline-block;
+  width: 600px;
+  height: 320px;
+  border-radius: 5px;
+  background-color: #fff;
+  margin-left:20px;
+  box-shadow: 0 1px 2px rgba(0,0,0,0.15);
+  transition: all 0.3s ease-in-out;
+}
+
+/* Create the hidden pseudo-element */
+/* include the shadow for the end state */
+.box::after {
+  content: '';
+  position: absolute;
+  z-index: -1;
+  opacity: 0;
+  border-color:1px solid #ddd;
+  border-radius: 5px;
+  box-shadow: 0 5px 15px rgba(0,0,0,0.3);
+  transition: opacity 0.3s ease-in-out;
+}
+
+/* The fast way */
+
+.make-it-fast {
+  box-shadow: 0 1px 2px rgba(0, 0, 0, 0.15);
+}
+
+/* Pre-render the bigger shadow, but hide it */
+
+.make-it-fast::after {
+  box-shadow: 0 5px 15px rgba(0, 0, 0, 0.3);
+  opacity: 0;
+  transition: opacity 0.3s ease-in-out;
+}
+
+/* Transition to showing the bigger shadow on hover */
+
+.make-it-fast:hover::after {
+  opacity: 1;
+}
+/* Scale up the box */
+.box:hover {
+  transform: scale(1.2, 1.2);
+}
+/* Fade in the pseudo-element with the bigger shadow */
+.box:hover::after {
+  opacity: 1;
+}
+.center {
+  flex: none;
+  max-width: 50%;
+}
+.nav-tabs > li.active > a, .nav-tabs > li.active > a:hover, .nav-tabs > li.active > a:focus {
+  border: 0;
+}
+.nav-tabs>li.active>a,.nav-tabs>li.active>a:focus,
+.nav-tabs>li.active>a:hover{
+ 	color:#555;
+ 	cursor:default;
+ 	border:1px solid #ddd;
+	background-color:#F3BB45;
+}
+.tab-content {
+  margin-left: 60px;
+}
+.tab-content .tab-pane {
+  display: none;
+  background-color: #fff;
+  padding: 1.6rem;
+  overflow-y: auto;
+}
+.tab-content .active {
+  display: block;
+}
