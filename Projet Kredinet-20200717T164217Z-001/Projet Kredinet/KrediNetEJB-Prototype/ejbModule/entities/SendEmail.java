@@ -18,9 +18,9 @@ import javax.mail.util.ByteArrayDataSource;
 import javax.management.RuntimeErrorException;
 
 public class SendEmail {
-	static String emailFrom="sinatgr2015@gmail.com";
-	 final static String username="sinatgr2015@gmail.com";
-	 final static String password="sinat2015@";
+	static String emailFrom="";
+	 final static String username="";
+	 final static String password="";
 	private static String idSession=id();
 	 
 	 
